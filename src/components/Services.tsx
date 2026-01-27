@@ -55,15 +55,15 @@ export default function Services() {
         </motion.div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-2xl p-4 shadow-lg mb-12 max-w-5xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="bg-white rounded-2xl p-6 shadow-lg mb-12 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.name}
                 onClick={() => setActiveTab(tab.name)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`flex items-center space-x-2 px-6 py-4 rounded-xl font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-8 py-5 rounded-xl font-medium transition-all duration-300 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white shadow-lg"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -155,3 +155,4 @@ export default function Services() {
     </section>
   );
 }
+

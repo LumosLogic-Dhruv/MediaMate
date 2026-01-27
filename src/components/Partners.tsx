@@ -15,7 +15,7 @@ export default function Partners() {
   ];
 
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-[#DF5E99]/10 via-purple-50 to-[#45AFC5]/10">
+    <section className="w-full py-20 px-4 bg-gradient-to-br from-[#DF5E99] via-[#9B5DE5] to-[#45AFC5]">
       <div className="w-full max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,10 +23,10 @@ export default function Partners() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             Network Agencies
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-white/80">
             We work with industry-leading platforms to deliver exceptional results
           </p>
         </motion.div>
