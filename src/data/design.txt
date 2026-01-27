@@ -1,0 +1,241 @@
+Brand Colors Used Everywhere
+
+Pink: #DF5E99
+
+Blue: #45AFC5
+
+Gradients always flow Pink → Blue unless stated.
+
+1️⃣ Navbar
+Background
+
+Glassmorphism
+
+Semi-transparent white with blur
+
+bg-white/70
+backdrop-blur-xl
+shadow-md
+rounded-full
+
+Styling Notes
+
+No gradient here (keeps it clean)
+
+CTA button uses gradient
+
+Hover → slight scale + color shift
+
+CTA Button Gradient
+bg-gradient-to-r from-[#DF5E99] to-[#45AFC5]
+
+2️⃣ Hero Section (MOST IMPORTANT)
+🔹 Overall Background
+
+Very soft radial gradient
+
+Centered slightly to the right side
+
+bg-[radial-gradient(circle_at_70%_40%,rgba(69,175,197,0.25),rgba(223,94,153,0.15),transparent_60%)]
+
+🔹 Right Side Image Stack
+
+Each floating card has:
+
+bg-white
+rounded-3xl
+shadow-xl
+
+Floating Effect
+
+Framer Motion:
+
+Y oscillation
+
+Slow rotation (±1°)
+
+Parallax on mouse move
+
+🔹 Hero Input
+
+Input: white
+
+Button: gradient (pink → blue)
+
+Fully rounded pill
+
+3️⃣ Stats Bar (Below Hero)
+Background
+
+White container
+
+Slight shadow
+
+Rounded XL
+
+bg-white
+rounded-2xl
+shadow-lg
+
+Hover Effect
+
+Lift up
+
+Icon color transition
+
+4️⃣ Services We Provide (Tabbed Section)
+🔹 Section Background
+
+Linear gradient left → right
+
+Pink on left, Blue on right
+
+bg-gradient-to-r
+from-[#DF5E99]/20
+to-[#45AFC5]/20
+
+🔹 Active Tab
+bg-white
+text-[#DF5E99]
+shadow-md
+rounded-full
+
+
+Inactive tabs:
+
+text-gray-500
+
+🔹 Paid Search Card (Main Service Card)
+Background
+
+Soft diagonal gradient
+
+Pink bottom-left → Blue top-right
+
+bg-gradient-to-tr
+from-[#DF5E99]/30
+to-[#45AFC5]/30
+
+Right Image Overlay
+
+Glass effect search bar
+
+bg-white/80
+backdrop-blur-md
+rounded-full
+
+5️⃣ Success Stories
+Section Background
+
+Clean white
+
+Decorative SVG wave lines behind cards
+
+bg-white
+relative
+overflow-hidden
+
+Card Style
+bg-white
+rounded-2xl
+shadow-md
+hover:shadow-xl
+hover:-translate-y-2
+transition
+
+Percentage Colors
+
+85% → Pink
+
+50% → Blue
+
+6️⃣ Network Agencies
+Background
+
+Light neutral gradient (VERY subtle)
+
+bg-gradient-to-r
+from-gray-50
+to-gray-100
+
+Logos
+
+Default: grayscale
+
+Hover: full color
+
+grayscale hover:grayscale-0 transition
+
+7️⃣ Performance Model Section
+🔹 Section Background
+
+White with soft wave SVG
+
+No heavy gradient here (focus on cards)
+
+🔹 Right Side Cards (KEY VISUAL)
+
+Each card has solid color, not gradient:
+
+Pink Cards
+bg-[#DF5E99]
+text-white
+
+Blue Cards
+bg-[#45AFC5]
+text-white
+
+Hover
+hover:scale-105
+hover:shadow-xl
+
+8️⃣ Insights Section
+Background
+
+Soft pastel gradient
+
+bg-gradient-to-r
+from-[#DF5E99]/10
+to-[#45AFC5]/10
+
+Blog Cards
+bg-white
+rounded-2xl
+shadow-md
+overflow-hidden
+
+Image Hover
+group-hover:scale-110
+transition-transform
+
+9️⃣ Footer
+Background
+
+Solid dark (not gradient)
+
+bg-[#111827]  /* near-black */
+
+CTA Button
+bg-gradient-to-r
+from-[#DF5E99]
+to-[#45AFC5]
+
+🔁 Universal Styling Rules
+Border Radius
+
+Cards: rounded-2xl
+
+Pills: rounded-full
+
+Shadows
+shadow-sm   /* default */
+shadow-lg   /* cards */
+shadow-xl  /* hover */
+
+🧠 Design Logic (Why This Works)
+Area	Purpose
+Hero	Emotional impact + branding
+Services	Visual separation
+Success Stories	Trust & clarity
+Performance Cards	Action & speed
+Footer	Strong closure
