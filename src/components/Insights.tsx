@@ -33,18 +33,18 @@ export default function Insights() {
   ];
 
   return (
-    <section className="w-full py-20 px-4 bg-gradient-to-br from-[#DF5E99]/10 via-purple-50 to-[#45AFC5]/10">
+    <section className="w-full py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99] via-[#9B5DE5] to-[#45AFC5]">
       <div className="w-full max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4">
             Latest Insights
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto px-4">
             Stay ahead of the curve with our expert insights on digital marketing trends and strategies
           </p>
         </motion.div>
@@ -58,38 +58,38 @@ export default function Insights() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="flex gap-8"
+            className="flex gap-4 md:gap-6 lg:gap-8"
             style={{ width: `${(insights.length + 3) * 350}px` }}
           >
             {[...insights, ...insights, ...insights].map((insight, index) => (
               <motion.article
                 key={index}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg group cursor-pointer hover:shadow-2xl transition-all duration-300 min-w-[320px]"
+                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer hover:shadow-2xl transition-all duration-300 min-w-[280px] md:min-w-[320px]"
               >
-                <div className="relative overflow-hidden h-48">
+                <div className="relative overflow-hidden h-40 md:h-48">
                   <img
                     src={insight.image}
                     alt={insight.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-3 py-1 rounded-full text-xs font-medium">
+
+                <div className="p-4 md:p-6">
+                  <div className="mb-2 md:mb-3">
+                    <span className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-2.5 py-0.5 md:px-3 md:py-1 rounded-full text-xs font-medium">
                       {insight.category}
                     </span>
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-800 mb-6 line-clamp-2 group-hover:text-[#DF5E99] transition-colors leading-tight">
+
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6 line-clamp-2 group-hover:text-[#DF5E99] transition-colors leading-tight">
                     {insight.title}
                   </h3>
-                  
+
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center space-x-2 text-[#DF5E99] font-medium group-hover:text-[#45AFC5] transition-colors"
+                    className="flex items-center space-x-2 text-[#DF5E99] font-medium group-hover:text-[#45AFC5] transition-colors text-sm md:text-base"
                   >
                     <span>Learn More</span>
                     <ArrowRight className="h-4 w-4" />

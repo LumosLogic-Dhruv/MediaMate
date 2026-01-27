@@ -29,10 +29,10 @@ export default function Stats() {
   ];
 
   return (
-    <section className="w-full py-16 px-4">
+    <section className="w-full py-12 md:py-16 px-4">
       <div className="w-full max-w-7xl mx-auto">
-        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-8 lg:p-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="bg-white rounded-2xl md:rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.1)] p-6 md:p-8 lg:p-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -41,20 +41,20 @@ export default function Stats() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="flex items-center gap-6 p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 cursor-pointer group"
+                className="flex items-center gap-4 md:gap-6 p-4 md:p-6 rounded-xl md:rounded-2xl bg-gray-50 hover:bg-white hover:shadow-[0_0_30px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer group"
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
-                  <stat.icon className="h-8 w-8 text-white" />
+                <div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${stat.color} rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg flex-shrink-0`}>
+                  <stat.icon className="h-6 w-6 md:h-8 md:w-8 text-white" />
                 </div>
-                
+
                 <div className="flex flex-col">
-                  <div className="text-4xl font-bold text-gray-800 mb-2">
+                  <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-1 md:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-lg font-semibold text-gray-700 mb-1">
+                  <div className="text-base md:text-lg font-semibold text-gray-700 mb-0.5 md:mb-1">
                     {stat.label}
                   </div>
-                  <div className="text-sm text-gray-500">
+                  <div className="text-xs md:text-sm text-gray-500">
                     {stat.subtitle}
                   </div>
                 </div>

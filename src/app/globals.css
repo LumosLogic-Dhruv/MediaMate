@@ -1,57 +1,13 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Container Fluid - Full width with padding */
-.container-fluid {
-  width: 100%;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
-}
-
-@media (min-width: 640px) {
-  .container-fluid {
-    padding-left: 3%;
-    padding-right: 3%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-fluid {
-    padding-left: 4%;
-    padding-right: 4%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container-fluid {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-}
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-pink: #df5e99;
-  --primary-blue: #45afc5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary-pink: var(--primary-pink);
-  --color-primary-blue: var(--primary-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -59,130 +15,28 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
+/* Gradient background class */
+.gradient-bg-pink-blue {
+  background: linear-gradient(135deg, #DF5E99 0%, #45AFC5 100%);
+}
+
+/* Hide scrollbar for auto-scrolling sections */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
-}
-
-/* Brand Gradient Utilities */
-.gradient-text-pink {
-  background: linear-gradient(135deg, #df5e99 0%, #b4487d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-blue {
-  background: linear-gradient(135deg, #45afc5 0%, #2d8799 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-bg-pink-blue {
-  background: linear-gradient(135deg, #df5e99, #45afc5);
-}
-
-.gradient-bg-blue-pink {
-  background: linear-gradient(135deg, #45afc5, #df5e99);
-}
-
-.gradient-border-pink-blue {
-  border-image: linear-gradient(135deg, #df5e99, #45afc5) 1;
-}
-
-/* Hero Background */
-.hero-bg {
-  background: radial-gradient(
-    circle at 70% 40%,
-    rgba(69, 175, 197, 0.35),
-    rgba(223, 94, 153, 0.25),
-    transparent 60%
-  );
-}
-
-/* Services Section Background */
-.services-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(228, 41, 125, 0.15),
-    rgba(50, 196, 225, 0.15)
-  );
-}
-
-/* Insights Section Background */
-.insights-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(223, 94, 153, 0.1),
-    rgba(69, 175, 197, 0.1)
-  );
-}
-
-/* Network Agencies Background */
-.network-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(69, 175, 197, 0.2),
-    rgba(223, 94, 153, 0.2)
-  );
-}
-
-/* Glassmorphism Navbar */
-.glass-nav {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
-
-/* Floating Cards Animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(1deg);
-  }
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
-}
-
-.float-animation:nth-child(2) {
-  animation-delay: -2s;
-}
-
-.float-animation:nth-child(3) {
-  animation-delay: -4s;
-}
-
-/* Auto scroll animation pause on hover */
-.auto-scroll-container:hover .auto-scroll-track {
-  animation-play-state: paused;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #df5e99, #45afc5);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #b4487d, #2d8799);
 }
 
 /* Line clamp utility */
@@ -193,78 +47,15 @@ html {
   overflow: hidden;
 }
 
-/* Box shadow utilities */
-.shadow-all {
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-all-lg {
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive typography */
-@media (max-width: 640px) {
-  h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
-}
-
-/* Responsive spacing */
-@media (max-width: 768px) {
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-
-/* Smooth transitions for all interactive elements */
-a,
-button {
-  transition: all 0.3s ease;
-}
-
 /* Focus styles for accessibility */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  outline: 2px solid #df5e99;
-  outline-offset: 2px;
+input:focus,
+button:focus {
+  outline: none;
 }
 
-/* Card hover effects */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(223, 94, 153, 0.15);
-}
-
-/* Gradient text animation */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
+/* Responsive text utilities */
+@media (max-width: 640px) {
+  .text-responsive-sm {
+    font-size: 0.875rem;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.gradient-animated {
-  background: linear-gradient(135deg, #df5e99, #45afc5, #df5e99);
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
 }
