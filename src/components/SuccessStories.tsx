@@ -48,8 +48,8 @@ export default function SuccessStories() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-20 px-4 bg-white">
-      <div className="w-full max-w-7xl mx-auto">
+    <section className="w-[100vw] py-16 md:py-20 px-4 bg-white">
+      <div className="w-[90vw] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function SuccessStories() {
         </motion.div>
 
         {/* Auto-scrolling container */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full mx-auto">
           <motion.div
             animate={{ x: [0, -100 * stories.length] }}
             transition={{
@@ -79,15 +79,16 @@ export default function SuccessStories() {
             {[...stories, ...stories, ...stories].map((story, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 text-center group cursor-pointer hover:shadow-2xl transition-all duration-300 min-w-[260px] md:min-w-[300px]"
+                className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 text-center group cursor-pointer shadow-2xl min-w-[350px] md:min-w-[400px]"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 rounded-full overflow-hidden">
-                  <img
-                    src={story.logo}
-                    alt={story.company}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-full h-[200] rounded-xl md:rounded-2xl border border-gray-500 flex justify-center items-center mb-5">
+                  <div className="w-auto h-auto border mx-auto rounded-full overflow-hidden">
+                    <img
+                      src={story.logo}
+                      alt={story.company}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
 
                 <div className="text-3xl md:text-4xl font-bold text-[#DF5E99] mb-1 md:mb-2">
@@ -109,7 +110,8 @@ export default function SuccessStories() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center space-x-2 text-[#DF5E99] font-medium group-hover:text-[#45AFC5] transition-colors mx-auto text-sm md:text-base"
+                  className="flex items-center  border px-5 py-2 rounded-full  justify-center space-x-2 text-[#DF5E99] font-medium group-hover:text-[#45AFC5] transition-colors mx-auto text-sm md:text-base"
+                  style={{ border: "linear-gradient(135deg, #DF5E99 0%, #45AFC5 100%)" }}
                 >
                   <span>Learn More</span>
                   <ArrowRight className="h-4 w-4" />

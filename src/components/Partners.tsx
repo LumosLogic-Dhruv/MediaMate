@@ -15,24 +15,21 @@ export default function Partners() {
   ];
 
   return (
-    <section className="w-full py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99] via-[#9B5DE5] to-[#45AFC5]">
-      <div className="w-full max-w-7xl mx-auto">
+    <section className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35">
+      <div className="w-[90vw] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
             Network Agencies
           </h2>
-          <p className="text-base md:text-lg text-white/80 px-4">
-            We work with industry-leading platforms to deliver exceptional results
-          </p>
         </motion.div>
 
         {/* Auto-scrolling container */}
-        <div className="relative overflow-hidden">
+        <div className="relative  w-full mx-auto">
           <motion.div
             animate={{ x: [0, -100 * partners.length] }}
             transition={{

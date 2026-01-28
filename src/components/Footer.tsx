@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+
   const services = [
     "Paid Search",
     "Paid Social",
@@ -23,99 +27,131 @@ export default function Footer() {
     "Terms of Service"
   ];
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle email submission
+    console.log("Email submitted:", email);
+    setEmail("");
+  };
+
   return (
-    <footer className="w-full bg-gray-900 text-white">
-      <div className="w-full max-w-7xl mx-auto px-4 py-12 md:py-16">
-        {/* Copyright at top */}
-        <div className="text-center pb-8 md:pb-12 mb-8 md:mb-12 border-b border-gray-800">
-          <div className="text-gray-400 text-xs md:text-sm">
-            © 2026 Media Mates. All Rights Reserved.
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
-          {/* Left Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-4 md:space-y-6"
-          >
-            {/* Logo at top */}
-            <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] bg-clip-text text-transparent mb-4 md:mb-6">
-              MediaMate
-            </div>
-
-            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-              Ready to Scale?
-            </h3>
-
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-              Let precision marketing take your brand to next level
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md pt-2 md:pt-4">
-              <div className="flex-1 relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 md:h-5 md:w-5" />
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full pl-9 md:pl-10 pr-4 py-2.5 md:py-3 rounded-full bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 text-white placeholder:text-gray-400 text-sm md:text-base"
+    <footer className="w-full bg-[#1a1a1a] text-white">
+      <div className="w-full px-4 py-16 md:py-20">
+        <div className="w-[90vw] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
+            {/* Left Section - Logo, Headline, Email */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              {/* Company Logo */}
+              <div className="relative w-56 h-32 md:w-64 md:h-32">
+                <Image
+                  src="/logo.png"
+                  alt="MediaMate Logo"
+                  fill
+                  className="object-contain"
                 />
               </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium flex items-center justify-center space-x-2 text-sm md:text-base"
-              >
-                <span>Submit</span>
-                <ArrowRight className="h-4 w-4" />
-              </motion.button>
-            </div>
-          </motion.div>
 
-          {/* Right Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="grid grid-cols-2 gap-6 md:gap-8"
-          >
-            {/* Services */}
-            <div>
-              <h4 className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-white">Services</h4>
-              <ul className="space-y-2 md:space-y-3">
-                {services.map((service, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm"
-                    >
-                      {service}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Headline */}
+              <h2 className="text-5xl md:text-6xl lg:text-6xl font-bold leading-tight font-montserrat">
+                Ready to Scale?
+              </h2>
 
-            {/* Company */}
-            <div>
-              <h4 className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-white">Company</h4>
-              <ul className="space-y-2 md:space-y-3">
-                {company.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {/* Supporting Line */}
+              <p className="text-white text-lg md:text-xl leading-relaxed max-w-md">
+                Let precision marketing take your brand to the next level
+              </p>
+
+              {/* Email Input Form */}
+              <form onSubmit={handleSubmit} className="pt-4">
+                <div className="flex flex-col sm:flex-row gap-4 max-w-md">
+                  <div className="flex-1 relative">
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email"
+                      className="w-full pl-12 pr-4 py-4 rounded-full bg-[#2a2a2a] border border-gray-700 focus:outline-none focus:border-[#DF5E99] focus:ring-1 focus:ring-[#DF5E99] text-white placeholder:text-gray-500 text-base"
+                      required
+                    />
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="submit"
+                    className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow whitespace-nowrap"
+                  >
+                    <span>Submit</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </motion.button>
+                </div>
+              </form>
+            </motion.div>
+
+            {/* Right Section - Link Columns */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="grid grid-cols-2 gap-12 md:gap-16 pt-8 lg:pt-4"
+            >
+              {/* Services Column */}
+              <div>
+                <h4 className="text-lg font-semibold uppercase tracking-wider text-white mb-8">
+                  Services
+                </h4>
+                <ul className="space-y-4">
+                  {services.map((service, index) => (
+                    <li key={index}>
+                      <a
+                        href="#"
+                        className="text-gray-300 hover:text-white transition-colors text-base flex items-center gap-3 group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#DF5E99] group-hover:bg-[#45AFC5] transition-colors flex-shrink-0" />
+                        {service}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Company Column */}
+              <div>
+                <h4 className="text-lg font-semibold uppercase tracking-wider text-white mb-8">
+                  Company
+                </h4>
+                <ul className="space-y-4">
+                  {company.map((item, index) => (
+                    <li key={index}>
+                      <a
+                        href="#"
+                        className="text-gray-300 hover:text-white transition-colors text-base flex items-center gap-3 group"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#45AFC5] group-hover:bg-[#DF5E99] transition-colors flex-shrink-0" />
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Divider Line */}
+          <div className="mt-20 md:mt-20 pt-8 border-t border-gray-800">
+            {/* Centered Copyright */}
+            <div className="text-center">
+              <p className="text-gray-500 text-lg">
+                © {new Date().getFullYear()} MediaMate. All Rights Reserved.
+              </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </footer>
