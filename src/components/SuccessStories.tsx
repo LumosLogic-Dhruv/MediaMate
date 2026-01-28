@@ -1,12 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function SuccessStories() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
   const stories = [
     {
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=100&h=100",
+      logo: "/companies/google.webp",
       company: "TechStart",
       metric1: "85%",
       title1: "Increase App Installation",
@@ -14,7 +17,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&q=80&w=100&h=100",
+      logo: "/companies/meta.webp",
       company: "AppFlow",
       metric1: "127%",
       title1: "Increase App Installation",
@@ -22,7 +25,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&q=80&w=100&h=100",
+      logo: "/companies/shopify.webp",
       company: "EcomPlus",
       metric1: "200%",
       title1: "Increase App Installation",
@@ -30,7 +33,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80&w=100&h=100",
+      logo: "/companies/microsoft.webp",
       company: "ScaleUp",
       metric1: "156%",
       title1: "Increase App Installation",
@@ -38,7 +41,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "https://images.unsplash.com/photo-1560472355-536de3962603?auto=format&fit=crop&q=80&w=100&h=100",
+      logo: "/companies/nvidia.webp",
       company: "GrowthCo",
       metric1: "178%",
       title1: "Increase App Installation",
@@ -48,7 +51,13 @@ export default function SuccessStories() {
   ];
 
   return (
-    <section className="w-[100vw] py-16 md:py-20 px-4 bg-white">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-[100vw] py-16 md:py-20 px-4 bg-white"
+    >
       <div className="w-[90vw] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -65,7 +74,17 @@ export default function SuccessStories() {
         </motion.div>
 
         {/* Auto-scrolling container */}
-        <div className="relative overflow-hidden w-full mx-auto">
+        <div 
+          ref={containerRef}
+          className="relative w-full mx-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+          onMouseEnter={() => {
+            const el = containerRef.current;
+            if (el) {
+              const scrollLeft = el.scrollLeft;
+              el.scrollTo({ left: scrollLeft, behavior: 'auto' });
+            }
+          }}
+        >
           <motion.div
             animate={{ x: [0, -100 * stories.length] }}
             transition={{
@@ -73,6 +92,7 @@ export default function SuccessStories() {
               repeat: Infinity,
               ease: "linear"
             }}
+            whileHover={{ animationPlayState: "paused" }}
             className="flex gap-4 md:gap-6 lg:gap-8"
             style={{ width: `${(stories.length + 3) * 320}px` }}
           >
@@ -82,11 +102,11 @@ export default function SuccessStories() {
                 className="bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 text-center group cursor-pointer shadow-2xl min-w-[350px] md:min-w-[400px]"
               >
                 <div className="w-full h-[200] rounded-xl md:rounded-2xl border border-gray-500 flex justify-center items-center mb-5">
-                  <div className="w-auto h-auto border mx-auto rounded-full overflow-hidden">
+                  <div className="w-auto h-auto overflow-hidden p-5">
                     <img
                       src={story.logo}
                       alt={story.company}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -121,6 +141,6 @@ export default function SuccessStories() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

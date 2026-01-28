@@ -28,7 +28,13 @@ export default function PerformanceModel() {
   ];
 
   return (
-    <section className="w-[100vw] py-20 md:py-30 px-4 relative overflow-hidden">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-[100vw] py-20 md:py-30 px-4 relative overflow-hidden"
+    >
       {/* Subtle Background Curves */}
       <div className="absolute inset-0 pointer-events-none">
         <svg className="absolute top-0 right-0 w-1/2 h-full opacity-20" viewBox="0 0 400 400">
@@ -200,6 +206,6 @@ export default function PerformanceModel() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -29,7 +29,13 @@ export default function Stats() {
   ];
 
   return (
-    <section className="w-[100vw] ">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-[100vw] "
+    >
       <div className="w-full ">
         <div className="bg-white rounded-2xl md:rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.1)] p-2 md:p-4 lg:p-4 w-[90vw] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -64,7 +70,7 @@ export default function Stats() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

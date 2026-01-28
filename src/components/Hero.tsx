@@ -5,7 +5,7 @@ import { Mail, ArrowRight, Rocket } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-[100vw] min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-20 md:pt-0">
+    <section className=" relative w-[100vw] min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-20 md:pt-0">
       {/* --- BACKGROUND ELEMENTS --- */}
 
       {/* <div className="absolute top-[-5%] right-[-10%] w-[70%] h-[80%] bg-[radial-gradient(ellipse_at_center,_#c94d87_0%,_#2d8799_35%,_#45AFC5_50%,_transparent_70%)] opacity-80 blur-[80px] z-0 pointer-events-none" /> */}
@@ -59,8 +59,8 @@ export default function Hero() {
             >
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold leading-[1.1] text-gray-900">
                 We scale ecommerce brands with precision{" "}
-                <span className="gradient-text-pink">performance marketing</span> &{" "}
-                <span className="gradient-text-blue">search</span>.
+                <span className="text-[#DF5E99]">performance marketing</span> &{" "}
+                <span className="text-[#45AFC5]">search</span>.
               </h1>
 
               <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
@@ -135,8 +135,14 @@ export default function Hero() {
 
               {/* Floating Rocket Badge */}
               <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                initial={{ opacity: 0, scale: 0.5, y: 0 }}
+                animate={{ opacity: 1, scale: 1, y: [0, -15, 0], rotate: [0, 5, 0] }}
+                transition={{ 
+                  opacity: { duration: 0.8, ease: "easeOut" },
+                  scale: { duration: 0.8, ease: "easeOut" },
+                  y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                }}
                 className="absolute top-[20%] left-[35%] sm:left-[40%] z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full flex items-center justify-center shadow-[0_10px_40px_-10px_rgba(223,94,153,0.5)] border-[2px] sm:border-[3px] md:border-[4px] lg:border-[6px] border-white/50 backdrop-blur-md"
               >
                 <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center border border-white/20">

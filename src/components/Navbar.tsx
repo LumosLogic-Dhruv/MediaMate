@@ -20,7 +20,7 @@ export default function Navbar() {
           {/* Logo - Left Side */}
           <div className="flex items-center flex-shrink-0">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="MediaMate Logo"
               width={120}
               height={40}
@@ -29,7 +29,7 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Links - Center with Rounded Black BG */}
-          <div className="hidden lg:flex items-center h-[9vh] max-w-7xl">
+          <div className="hidden lg:flex items-center h-[9vh] max-w-7xl px-5 py-2 rounded-full">
             <div className="bg-[#222222] h-full rounded-full px-5 xl:px-6 py-4 flex items-center space-x-3 xl:space-x-6">
               <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
                 Who We Are

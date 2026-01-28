@@ -1,9 +1,12 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function Insights() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
   const insights = [
     {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
@@ -33,7 +36,13 @@ export default function Insights() {
   ];
 
   return (
-    <section className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20"
+    >
       <div className="w-[90vw] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -47,7 +56,17 @@ export default function Insights() {
         </motion.div>
 
         {/* Auto-scrolling container */}
-        <div className="relative w-full mx-auto">
+        <div 
+          ref={containerRef}
+          className="relative w-full mx-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+          onMouseEnter={() => {
+            const el = containerRef.current;
+            if (el) {
+              const scrollLeft = el.scrollLeft;
+              el.scrollTo({ left: scrollLeft, behavior: 'auto' });
+            }
+          }}
+        >
           <motion.div
             animate={{ x: [0, -100 * insights.length] }}
             transition={{
@@ -55,6 +74,7 @@ export default function Insights() {
               repeat: Infinity,
               ease: "linear"
             }}
+            whileHover={{ animationPlayState: "paused" }}
             className="flex gap-4 md:gap-6 lg:gap-8"
             style={{ width: `${(insights.length + 3) * 350}px` }}
           >
@@ -97,6 +117,6 @@ export default function Insights() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

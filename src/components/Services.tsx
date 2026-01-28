@@ -80,9 +80,16 @@ export default function Services() {
   }, []);
 
   return (
-    <section className="w-full py-16 md:py-20 px-4" ref={sectionRef}>
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full py-16 md:py-20 px-4" 
+      ref={sectionRef}
+    >
       {/* Main Card Container with Gradient Background */}
-      <div className="bg-gradient-to-br from-pink-300 via-purple-100 to-cyan-300 rounded-[3rem] border border-white/50 shadow-2xl p-6 md:p-8 lg:p-12 w-[90vw] mx-auto relative overflow-hidden">
+      <div className=" bg-gradient-to-br from-pink-300 via-purple-100 to-cyan-300 rounded-[3rem] border border-white/50 shadow-2xl p-6 md:p-8 lg:p-12 w-[90vw] mx-auto relative overflow-hidden">
         
         {/* Subtle Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
@@ -216,6 +223,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

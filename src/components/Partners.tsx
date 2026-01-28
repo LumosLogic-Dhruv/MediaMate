@@ -4,18 +4,22 @@ import { motion } from "framer-motion";
 
 export default function Partners() {
   const partners = [
-    { name: "TikTok Partner", logo: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Google Partner", logo: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Shopify", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Microsoft", logo: "https://images.unsplash.com/photo-1633419461186-7d40a38105ec?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Triple Whale", logo: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Klaviyo", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Meta", logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=120&h=60" },
-    { name: "Amazon", logo: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=120&h=60" }
+    { name: "Google Partner", logo: "/companies/google.webp" },
+    { name: "Shopify", logo: "/companies/shopify.webp" },
+    { name: "Microsoft", logo: "/companies/microsoft.webp" },
+    { name: "Meta", logo: "/companies/meta.webp" },
+    { name: "Nvidia", logo: "/companies/nvidia.webp" },
+    { name: "Oracle", logo: "/companies/oracle.webp" }
   ];
 
   return (
-    <section className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35">
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35"
+    >
       <div className="w-[90vw] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -43,24 +47,20 @@ export default function Partners() {
             {[...partners, ...partners, ...partners].map((partner, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.1, y: -5 }}
-                className="flex flex-col items-center justify-center p-4 md:p-6 bg-white/80 backdrop-blur-sm rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group cursor-pointer min-w-[140px] md:min-w-[160px]"
+                className="flex flex-col items-center justify-center group cursor-pointer min-w-[140px] md:min-w-[160px]"
               >
-                <div className="w-20 h-10 md:w-24 md:h-12 mb-2 md:mb-3 grayscale group-hover:grayscale-0 transition-all duration-300 flex items-center justify-center">
+                <div className="w-full h-24 md:w-34 flex items-center justify-center">
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-w-full max-h-full object-contain"
+                    className="max-w-full max-h-full object-cover"
                   />
-                </div>
-                <div className="text-xs md:text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors text-center">
-                  {partner.name}
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

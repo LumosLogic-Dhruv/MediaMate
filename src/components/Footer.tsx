@@ -35,7 +35,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#1a1a1a] text-white">
+    <motion.footer 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="w-full bg-[#1a1a1a] text-white"
+    >
       <div className="w-full px-4 py-16 md:py-20">
         <div className="w-[90vw] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
@@ -44,12 +50,12 @@ export default function Footer() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-8 text-center lg:text-left"
             >
               {/* Company Logo */}
-              <div className="relative w-56 h-32 md:w-64 md:h-32">
+              <div className="relative w-56 h-32 md:w-64 md:h-32 mx-auto lg:mx-0">
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="MediaMate Logo"
                   fill
                   className="object-contain"
@@ -154,6 +160,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
