@@ -177,11 +177,6 @@ export default function PerformanceModel() {
                       {feature.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4 md:mb-5">
-                      {feature.description}
-                    </p>
-
                     {/* Arrow Button */}
                     <motion.button
                       whileHover={{ x: 5 }}
