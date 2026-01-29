@@ -21,24 +21,24 @@ import companyLogo from '../../public/logo.svg';
 
 export const resources = {
   // Hero Images
-  heroImg1: { src: heroImg1.src, alt: 'Main Hero Image' },
-  heroImg2: { src: heroImg2.src, alt: 'Workspace Image' },
-  heroImg3: { src: heroImg3.src, alt: 'Man Image' },
+  heroImg1: { src: heroImg1.src, alt: 'Ecommerce marketing team collaborating on performance marketing strategy' },
+  heroImg2: { src: heroImg2.src, alt: 'Digital marketing workspace with analytics dashboards for conversion rate optimization' },
+  heroImg3: { src: heroImg3.src, alt: 'Marketing professional reviewing paid search campaign results' },
 
   // Company Logos
-  googleLogo: { src: googleLogo.src, alt: 'Google Partner' },
-  shopifyLogo: { src: shopifyLogo.src, alt: 'Shopify' },
-  microsoftLogo: { src: microsoftLogo.src, alt: 'Microsoft' },
-  metaLogo: { src: metaLogo.src, alt: 'Meta' },
-  nvidiaLogo: { src: nvidiaLogo.src, alt: 'Nvidia' },
-  oracleLogo: { src: oracleLogo.src, alt: 'Oracle' },
+  googleLogo: { src: googleLogo.src, alt: 'Google Partner certified agency badge' },
+  shopifyLogo: { src: shopifyLogo.src, alt: 'Shopify ecommerce marketing partner logo' },
+  microsoftLogo: { src: microsoftLogo.src, alt: 'Microsoft Advertising partner logo' },
+  metaLogo: { src: metaLogo.src, alt: 'Meta Business partner for paid social advertising' },
+  nvidiaLogo: { src: nvidiaLogo.src, alt: 'Nvidia technology partner logo' },
+  oracleLogo: { src: oracleLogo.src, alt: 'Oracle marketing cloud partner logo' },
 
   // Insights Images
-  insightsImg1: { src: insightsImg1.src, alt: 'Performance Marketing Insights' },
-  insightsImg2: { src: insightsImg2.src, alt: 'SEO Insights' },
-  insightsImg3: { src: insightsImg3.src, alt: 'Paid Social Insights' },
+  insightsImg1: { src: insightsImg1.src, alt: 'Performance marketing agency insights and ecommerce growth strategies' },
+  insightsImg2: { src: insightsImg2.src, alt: 'SEO services best practices for ecommerce websites' },
+  insightsImg3: { src: insightsImg3.src, alt: 'Paid search services and social media advertising insights' },
 
   // Logo
-  logo: { src: companyLogo.src, alt: 'MediaMate Logo' }
+  logo: { src: companyLogo.src, alt: 'MediaMate performance marketing agency logo' }
 };
 

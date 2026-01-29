@@ -27,7 +27,8 @@ const organizationSchema = {
     "https://www.linkedin.com/company/mediamate",
     "https://twitter.com/mediamate",
     "https://www.instagram.com/mediamate",
-    "https://www.facebook.com/mediamate"
+    "https://www.facebook.com/mediamate",
+    "https://www.youtube.com/@mediamate"
   ],
   contactPoint: {
     "@type": "ContactPoint",
@@ -37,8 +38,49 @@ const organizationSchema = {
   },
   address: {
     "@type": "PostalAddress",
+    streetAddress: "123 Marketing Avenue, Suite 500",
+    addressLocality: "New York",
+    addressRegion: "NY",
+    postalCode: "10001",
     addressCountry: "US"
   }
+};
+
+// Structured Data - LocalBusiness Schema
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "MediaMate",
+  image: "https://mediamate.com/logo.svg",
+  "@id": "https://mediamate.com",
+  url: "https://mediamate.com",
+  telephone: "+1-555-123-4567",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "123 Marketing Avenue, Suite 500",
+    addressLocality: "New York",
+    addressRegion: "NY",
+    postalCode: "10001",
+    addressCountry: "US"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 40.7128,
+    longitude: -74.0060
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00"
+  },
+  sameAs: [
+    "https://www.linkedin.com/company/mediamate",
+    "https://twitter.com/mediamate",
+    "https://www.instagram.com/mediamate",
+    "https://www.facebook.com/mediamate",
+    "https://www.youtube.com/@mediamate"
+  ]
 };
 
 // Structured Data - Website Schema
@@ -119,26 +161,21 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "MediaMate - Performance Marketing & Search Solutions | Scale Your Ecommerce Brand",
-    template: "%s | MediaMate - Performance Marketing Agency"
+    default: "MediaMate | Performance Marketing Agency",
+    template: "%s | MediaMate"
   },
-  description: "MediaMate is a leading performance marketing agency that scales ecommerce brands with precision paid search, SEO, paid social, and data-driven strategies. Achieve 40% growth, 58% CTR improvement, and 2X conversions.",
+  description: "Performance marketing agency for ecommerce. Expert paid search, SEO services, and conversion rate optimization to scale your brand.",
   keywords: [
     "performance marketing agency",
     "ecommerce marketing",
-    "paid search advertising",
+    "paid search services",
     "SEO services",
-    "digital marketing agency",
-    "growth marketing",
-    "ecommerce growth",
     "conversion rate optimization",
+    "digital marketing agency",
+    "ecommerce growth",
     "paid social advertising",
-    "demand side platform",
-    "content marketing",
     "PPC management",
-    "Google Ads agency",
-    "Facebook Ads agency",
-    "ecommerce SEO"
+    "Google Ads agency"
   ],
   authors: [{ name: "MediaMate", url: "https://mediamate.com" }],
   creator: "MediaMate",
@@ -229,9 +266,34 @@ export default function RootLayout({
         {/* DNS Prefetch for third-party services */}
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://mediamate.com" />
+        {/* Facebook Pixel Base Code */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', 'YOUR_PIXEL_ID');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
 
         {/* Structured Data - JSON-LD */}
         <script
@@ -250,6 +312,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(serviceSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
       </head>

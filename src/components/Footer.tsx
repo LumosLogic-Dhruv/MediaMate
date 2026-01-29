@@ -36,6 +36,11 @@ const SocialIcons = {
       />
     </svg>
   ),
+  youtube: (
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  ),
 };
 
 export default function Footer() {
@@ -67,6 +72,7 @@ export default function Footer() {
     { name: "Twitter", href: "https://twitter.com/mediamate", icon: "twitter" },
     { name: "Instagram", href: "https://www.instagram.com/mediamate", icon: "instagram" },
     { name: "Facebook", href: "https://www.facebook.com/mediamate", icon: "facebook" },
+    { name: "YouTube", href: "https://www.youtube.com/@mediamate", icon: "youtube" },
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -122,6 +128,17 @@ export default function Footer() {
               <p className="text-body-base md:text-body-lg text-gray-300 leading-relaxed max-w-md">
                 Let precision marketing take your brand to the next level
               </p>
+
+              {/* Business Contact Info */}
+              <address className="not-italic text-gray-300 text-body-sm space-y-2">
+                <p>123 Marketing Avenue, Suite 500</p>
+                <p>New York, NY 10001</p>
+                <p>
+                  <a href="tel:+15551234567" className="hover:text-white transition-colors">
+                    +1 (555) 123-4567
+                  </a>
+                </p>
+              </address>
 
               {/* Email Input Form */}
               <form onSubmit={handleSubmit} className="pt-4" aria-label="Newsletter subscription">
