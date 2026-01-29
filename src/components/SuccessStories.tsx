@@ -28,48 +28,48 @@ export default function SuccessStories() {
     const slider = sliderRef.current;
     if (!slider) return;
 
-    const items = gsap.utils.toArray(slider.children);
-    // Use the width of one set of cards for progress calculation
-    const totalWidth = (slider.scrollWidth / 3);
+    const items = gsap.utils.toArray(slider.children) as HTMLElement[];
+    const totalWidth = slider.scrollWidth / 3;
 
-    const horizontalLoop = (items: any[], config: any) => {
+    // Helper to create the seamless loop with explicit types to fix Build errors
+    const horizontalLoop = (items: HTMLElement[], config: any) => {
       items = gsap.utils.toArray(items);
       config = config || {};
       let tl = gsap.timeline({
           repeat: config.repeat,
           paused: config.paused,
           defaults: { ease: "none" },
-          onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100),
+          onReverseComplete: () => { 
+            tl.totalTime(tl.rawTime() + tl.duration() * 100); 
+          }, // Fixed: Wrapped in braces to return void
         }),
         length = items.length,
         startX = items[0].offsetLeft,
         times: number[] = [],
         widths: number[] = [],
         xPercents: number[] = [],
-        curIndex = 0,
         pixelsPerSecond = (config.speed || 1) * 100,
         snap = config.snap === false ? (v: any) => v : gsap.utils.snap(config.snap || 1),
-        totalWidth, curX, distanceToStart, distanceToLoop, item, i;
+        totalWidth: number, curX: number, distanceToStart: number, distanceToLoop: number, item: HTMLElement, i: number;
 
       gsap.set(items, {
         xPercent: (i, target) => {
-          let w = (widths[i] = parseFloat(gsap.getProperty(target, "width", "px") as string));
+          widths[i] = parseFloat(gsap.getProperty(target, "width", "px") as string);
           xPercents[i] = parseFloat(gsap.getProperty(target, "xPercent") as string);
           return xPercents[i];
         },
-        force3D: true, // Uses GPU for smoother motion
+        force3D: true,
       });
 
-      totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
+      totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * (gsap.getProperty(items[length - 1], "scaleX") as number) + (parseFloat(config.paddingRight) || 0);
 
       for (i = 0; i < length; i++) {
         item = items[i];
         curX = (xPercents[i] / 100) * widths[i];
         distanceToStart = item.offsetLeft + curX - startX;
-        distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+        distanceToLoop = distanceToStart + widths[i] * (gsap.getProperty(item, "scaleX") as number);
         tl.to(item, { xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
-          .fromTo(item, { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
-          .add("label" + i, distanceToStart / pixelsPerSecond);
+          .fromTo(item, { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond);
         times[i] = distanceToStart / pixelsPerSecond;
       }
 
@@ -91,12 +91,10 @@ export default function SuccessStories() {
         this.startProgress = loop.progress();
       },
       onDrag() {
-        // Precise progress tracking to eliminate the "pumping" reset
         const change = (this.startX - this.x) / totalWidth;
         loop.progress(gsap.utils.wrap(0, 1, this.startProgress + change));
       },
       onRelease() {
-        // Ultra-smooth ramp back to auto-scroll
         gsap.to(loop, { timeScale: 1, duration: 0.8, ease: "sine.inOut" });
       }
     });
