@@ -1,0 +1,14 @@
+# Robots.txt for MediaMate
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mediamate.com/sitemap.xml
+
+# Disallow private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /_static/
+Disallow: /out/
+Disallow: /__化
+

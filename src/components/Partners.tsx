@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { resources } from "@/data/resources";
 
 export default function Partners() {
@@ -20,6 +21,7 @@ export default function Partners() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
       className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35"
+      aria-label="Our Partner Networks"
     >
       <div className="w-[90vw] mx-auto">
         <motion.div
@@ -34,7 +36,7 @@ export default function Partners() {
         </motion.div>
 
         {/* Auto-scrolling container */}
-        <div className="relative  w-full mx-auto">
+        <div className="relative w-full mx-auto">
           <motion.div
             animate={{ x: [0, -100 * partners.length] }}
             transition={{
@@ -51,10 +53,14 @@ export default function Partners() {
                 className="flex flex-col items-center justify-center group cursor-pointer min-w-[140px] md:min-w-[160px]"
               >
                 <div className="w-full h-24 md:w-34 flex items-center justify-center">
-                  <img
+                  <Image
                     src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-cover"
+                    alt={`${partner.name} logo`}
+                    width={140}
+                    height={60}
+                    quality={60}
+                    sizes="(max-width: 768px) 120px, 160px"
+                    className="max-w-full max-h-full object-contain transition-opacity duration-300"
                   />
                 </div>
               </motion.div>

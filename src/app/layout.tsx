@@ -13,33 +13,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MediaMate - Performance Marketing & Search Solutions",
+  title: {
+    default: "MediaMate - Performance Marketing & Search Solutions",
+    template: "%s | MediaMate"
+  },
   description: "We scale ecommerce brands with precision performance marketing & search. Drive growth with data-driven strategies that deliver measurable results.",
-  keywords: "performance marketing, ecommerce marketing, paid search, SEO, digital marketing, growth marketing",
+  keywords: ["performance marketing", "ecommerce marketing", "paid search", "SEO", "digital marketing", "growth marketing", "ecommerce growth"],
   authors: [{ name: "MediaMate" }],
   creator: "MediaMate",
   publisher: "MediaMate",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "MediaMate - Performance Marketing & Search Solutions",
     description: "We scale ecommerce brands with precision performance marketing & search. Drive growth with data-driven strategies.",
     url: "https://mediamate.com",
     siteName: "MediaMate",
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: "/logo.svg",
+        url: "/1.webp",
         width: 1200,
         height: 630,
         alt: "MediaMate - Performance Marketing Solutions",
       },
     ],
-    locale: "en_US",
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "MediaMate - Performance Marketing & Search Solutions",
     description: "We scale ecommerce brands with precision performance marketing & search.",
-    images: ["/logo.svg"],
+    images: ["/1.webp"],
   },
   icons: {
     icon: [
@@ -54,6 +68,7 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  metadataBase: new URL("https://mediamate.com"),
 };
 
 export default function RootLayout({
@@ -64,6 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="canonical" href="https://mediamate.com" />
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
         <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon.svg" />
         <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg" />
@@ -71,7 +87,9 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" sizes="512x512" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="sitemap" href="/sitemap.xml" type="application/xml" />
         <meta name="theme-color" content="#DF5E99" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full overflow-x-hidden`}

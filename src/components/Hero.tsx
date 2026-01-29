@@ -104,6 +104,9 @@ export default function Hero() {
                   src={resources.heroImg1.src}
                   alt={resources.heroImg1.alt}
                   fill
+                  priority
+                  quality={60}
+                  sizes="(max-width: 768px) 55vw, 60vw"
                   className="object-cover"
                 />
               </motion.div>

@@ -1,15 +1,41 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
-import SuccessStories from "@/components/SuccessStories";
-import Partners from "@/components/Partners";
-import PerformanceModel from "@/components/PerformanceModel";
-import Insights from "@/components/Insights";
-import Footer from "@/components/Footer";
-import BackgroundGradient from "@/components/BackgroundGradient";
+
+// Lazy load below-the-fold components for better performance
+const SuccessStories = dynamic(
+  () => import("@/components/SuccessStories"),
+  { loading: () => <div className="w-[100vw] py-16" aria-hidden="true" /> }
+);
+
+const Partners = dynamic(
+  () => import("@/components/Partners"),
+  { loading: () => <div className="w-[100vw] py-16" aria-hidden="true" /> }
+);
+
+const PerformanceModel = dynamic(
+  () => import("@/components/PerformanceModel"),
+  { loading: () => <div className="w-[100vw] py-20" aria-hidden="true" /> }
+);
+
+const Insights = dynamic(
+  () => import("@/components/Insights"),
+  { loading: () => <div className="w-[100vw] py-16" aria-hidden="true" /> }
+);
+
+const Footer = dynamic(
+  () => import("@/components/Footer"),
+  { loading: () => <div className="w-full h-64" aria-hidden="true" /> }
+);
+
+const BackgroundGradient = dynamic(
+  () => import("@/components/BackgroundGradient"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
