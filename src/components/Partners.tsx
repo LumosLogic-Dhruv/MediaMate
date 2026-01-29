@@ -30,7 +30,7 @@ export default function Partners() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
+          <h2 className="font-bold text-black mb-3 md:mb-4">
             Network Agencies
           </h2>
         </motion.div>

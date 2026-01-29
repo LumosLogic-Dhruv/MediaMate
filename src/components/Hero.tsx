@@ -59,13 +59,13 @@ export default function Hero() {
               transition={{ duration: 0.8 }}
               className="space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left order-2 lg:order-1"
             >
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold leading-[1.1] text-gray-900">
+              <h1 className="font-bold leading-[1.1] text-gray-900">
                 We scale ecommerce brands with precision{" "}
                 <span className="text-[#DF5E99]">performance marketing</span> &{" "}
                 <span className="text-[#45AFC5]">search</span>.
               </h1>
 
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-body-base md:text-body-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 Drive growth with data-driven strategies that deliver measurable results for your ecommerce business.
               </p>
 
@@ -76,13 +76,13 @@ export default function Hero() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full pl-11 pr-4 py-3 md:py-4 rounded-xl sm:rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 bg-white text-sm md:text-base"
+                    className="w-full pl-11 pr-4 py-3 md:py-4 rounded-xl sm:rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 bg-white text-body-sm md:text-body-base"
                   />
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-[#2d8799] border border-white/20 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl sm:rounded-full font-semibold shadow-md hover:shadow-xl transition-all flex items-center justify-center text-sm md:text-base whitespace-nowrap"
+                  className="bg-[#2d8799] border border-white/20 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl sm:rounded-full font-semibold shadow-md hover:shadow-xl transition-all flex items-center justify-center text-body-sm md:text-btn whitespace-nowrap"
                 >
                   <span className="flex items-center">
                     Submit

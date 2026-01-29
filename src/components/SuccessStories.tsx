@@ -115,10 +115,10 @@ export default function SuccessStories() {
       id="success-stories"
     >
       <div className="w-[90vw] mx-auto mb-12 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+        <h2 className="font-bold text-gray-800 mb-4">
           Success Stories
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+        <p className="text-body-base md:text-body-lg text-gray-600 max-w-2xl mx-auto px-4">
           Real results from real clients
         </p>
       </div>
@@ -144,12 +144,12 @@ export default function SuccessStories() {
                 </div>
               </div>
 
-              <div className="text-3xl font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
-              <div className="text-base text-black mb-4 font-medium">{story.title1}</div>
-              <div className="text-3xl font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
-              <div className="text-base text-black mb-6 font-medium">{story.title2}</div>
+              <div className="font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
+              <div className="text-body-base text-black mb-4 font-medium">{story.title1}</div>
+              <div className="font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
+              <div className="text-body-base text-black mb-6 font-medium">{story.title2}</div>
 
-              <div className="inline-flex items-center border border-[#DF5E99] px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors">
+              <div className="inline-flex items-center border border-[#DF5E99] px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors text-body-sm">
                 <span>Learn More</span>
                 <ArrowRight className="h-4 w-4" />
               </div>

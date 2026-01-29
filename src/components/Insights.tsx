@@ -144,7 +144,7 @@ export default function Insights() {
     >
       <div className="w-[90vw] mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Insights</h2>
+          <h2 className="font-bold text-black mb-4">Insights</h2>
         </div>
 
         <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing touch-pan-y">
@@ -161,11 +161,11 @@ export default function Insights() {
                 </div>
 
                 <div className="p-4 md:p-6 pointer-events-auto">
-                  <span className="text-[#45AFC5] text-lg font-bold">{insight.category}</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 my-4 line-clamp-2 leading-tight">
+                  <span className="text-[#45AFC5] text-body-base font-bold">{insight.category}</span>
+                  <h3 className="font-bold text-gray-800 my-4 line-clamp-2 leading-tight">
                     {insight.title}
                   </h3>
-                  <button className="flex items-center border border-[#DF5E99] px-5 py-2 rounded-full space-x-2 text-[#DF5E99] font-medium hover:bg-pink-50 transition-all">
+                  <button className="flex items-center border border-[#DF5E99] px-5 py-2 rounded-full space-x-2 text-[#DF5E99] font-medium hover:bg-pink-50 transition-all text-body-sm">
                     <span>Learn More</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>

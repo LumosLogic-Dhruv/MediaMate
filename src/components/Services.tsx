@@ -111,12 +111,12 @@ export default function Services() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10 md:mb-12 max-w-4xl mx-auto"
+            className="text-center mb-12 md:mb-16 max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 font-montserrat">
+            <h2 className="font-bold text-slate-800 mb-4">
               Services We Provide
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto px-4 font-medium">
+            <p className="text-body-base md:text-body-lg text-slate-600 max-w-2xl mx-auto px-4 font-medium">
               Comprehensive digital marketing solutions tailored to scale your ecommerce business
             </p>
           </motion.div>
@@ -129,7 +129,7 @@ export default function Services() {
                 onClick={() => setActiveTab(tab.name)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`flex items-center space-x-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-body-sm md:text-btn transition-all duration-300 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-teal-400 to-pink-500 text-white shadow-lg"
                     : "bg-slate-700 text-slate-300 hover:bg-slate-600"
@@ -152,11 +152,11 @@ export default function Services() {
                 transition={{ duration: 0.4 }}
                 className="space-y-5 md:space-y-6 order-2 lg:order-1"
               >
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 font-montserrat">
+                <h3 className="font-bold text-slate-800">
                   {currentContent.title}
                 </h3>
 
-                <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
+                <p className="text-body-base text-slate-600 leading-relaxed font-medium">
                   {currentContent.description}
                 </p>
 
@@ -164,7 +164,7 @@ export default function Services() {
                   {currentContent.features.map((feature, index) => (
                     <li key={index} className="flex items-center space-x-3">
                       <div className="w-2.5 h-2.5 bg-gradient-to-r from-teal-400 to-pink-500 rounded-full flex-shrink-0"></div>
-                      <span className="text-slate-700 text-sm md:text-base">{feature}</span>
+                      <span className="text-body-sm text-slate-700">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -172,7 +172,7 @@ export default function Services() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-teal-400 to-pink-500 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base shadow-lg inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-teal-400 to-pink-500 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-body-sm md:text-btn shadow-lg inline-flex items-center gap-2"
                 >
                   Learn More →
                 </motion.button>

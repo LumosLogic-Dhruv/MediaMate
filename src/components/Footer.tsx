@@ -64,12 +64,12 @@ export default function Footer() {
               </div>
 
               {/* Headline */}
-              <h2 className="text-5xl md:text-6xl lg:text-6xl font-bold leading-tight font-montserrat">
+              <h2 className="font-bold leading-tight font-montserrat">
                 Ready to Scale?
               </h2>
 
               {/* Supporting Line */}
-              <p className="text-white text-lg md:text-xl leading-relaxed max-w-md">
+              <p className="text-body-base md:text-body-lg text-white leading-relaxed max-w-md">
                 Let precision marketing take your brand to the next level
               </p>
 
@@ -83,7 +83,7 @@ export default function Footer() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className="w-full pl-12 pr-4 py-4 rounded-full bg-[#2a2a2a] border border-gray-700 focus:outline-none focus:border-[#DF5E99] focus:ring-1 focus:ring-[#DF5E99] text-white placeholder:text-gray-500 text-base"
+                      className="w-full pl-12 pr-4 py-4 rounded-full bg-[#2a2a2a] border border-gray-700 focus:outline-none focus:border-[#DF5E99] focus:ring-1 focus:ring-[#DF5E99] text-white placeholder:text-gray-500 text-body-base"
                       required
                     />
                   </div>
@@ -91,7 +91,7 @@ export default function Footer() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow whitespace-nowrap"
+                    className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow whitespace-nowrap text-btn"
                   >
                     <span>Submit</span>
                     <ArrowRight className="h-5 w-5" />
@@ -110,7 +110,7 @@ export default function Footer() {
             >
               {/* Services Column */}
               <div>
-                <h4 className="text-lg font-semibold uppercase tracking-wider text-white mb-8">
+                <h4 className="text-h5 uppercase tracking-wider text-white mb-8">
                   Services
                 </h4>
                 <ul className="space-y-4">
@@ -118,7 +118,7 @@ export default function Footer() {
                     <li key={index}>
                       <a
                         href="#"
-                        className="text-gray-300 hover:text-white transition-colors text-base flex items-center gap-3 group"
+                        className="text-gray-300 hover:text-white transition-colors text-body-base flex items-center gap-3 group"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#DF5E99] group-hover:bg-[#45AFC5] transition-colors flex-shrink-0" />
                         {service}
@@ -130,7 +130,7 @@ export default function Footer() {
 
               {/* Company Column */}
               <div>
-                <h4 className="text-lg font-semibold uppercase tracking-wider text-white mb-8">
+                <h4 className="text-h5 uppercase tracking-wider text-white mb-8">
                   Company
                 </h4>
                 <ul className="space-y-4">
@@ -138,7 +138,7 @@ export default function Footer() {
                     <li key={index}>
                       <a
                         href="#"
-                        className="text-gray-300 hover:text-white transition-colors text-base flex items-center gap-3 group"
+                        className="text-gray-300 hover:text-white transition-colors text-body-base flex items-center gap-3 group"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#45AFC5] group-hover:bg-[#DF5E99] transition-colors flex-shrink-0" />
                         {item}
@@ -154,7 +154,7 @@ export default function Footer() {
           <div className="mt-20 md:mt-20 pt-8 border-t border-gray-800">
             {/* Centered Copyright */}
             <div className="text-center">
-              <p className="text-gray-500 text-lg">
+              <p className="text-gray-500 text-body-base">
                 © {new Date().getFullYear()} MediaMate. All Rights Reserved.
               </p>
             </div>

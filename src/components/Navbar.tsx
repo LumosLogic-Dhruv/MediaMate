@@ -94,7 +94,7 @@ export default function Navbar() {
           {/* Navigation Links - Center with Rounded Black BG */}
           <div className="hidden lg:flex items-center h-[9vh] max-w-7xl px-5 py-2 rounded-full">
             <div className="bg-[#222222] h-full rounded-full px-5 xl:px-6 py-4 flex items-center space-x-3 xl:space-x-6">
-              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
+              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-nav whitespace-nowrap">
                 Who We Are
               </a>
 
@@ -103,7 +103,7 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown("services")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
+                <button className="flex items-center text-white hover:text-[#DF5E99] transition-colors text-nav whitespace-nowrap">
                   Services <ChevronDown className="ml-1 h-3 w-3" />
                 </button>
 
@@ -157,10 +157,10 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
-              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
+              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-nav whitespace-nowrap">
                 Success Stories
               </a>
-              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
+              <a href="#" className="text-white hover:text-[#DF5E99] transition-colors text-nav whitespace-nowrap">
                 Our Story
               </a>
 
@@ -169,7 +169,7 @@ export default function Navbar() {
                 onMouseEnter={() => setActiveDropdown("insights")}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="flex items-center text-white hover:text-[#DF5E99] transition-colors text-sm xl:text-base whitespace-nowrap">
+                <button className="flex items-center text-white hover:text-[#DF5E99] transition-colors text-nav whitespace-nowrap">
                   Insights <ChevronDown className="ml-1 h-3 w-3" />
                 </button>
                 {activeDropdown === "insights" && (
@@ -190,7 +190,7 @@ export default function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex gradient-bg-pink-blue text-white px-4 lg:px-5 py-2.5 lg:py-4 rounded-full font-medium shadow-md hover:shadow-lg transition-shadow text-sm lg:text-base"
+            className="hidden md:flex gradient-bg-pink-blue text-white px-4 lg:px-5 py-2.5 lg:py-4 rounded-full font-medium shadow-md hover:shadow-lg transition-shadow text-btn"
           >
             <span className="flex justify-center items-center">
               Let&apos;s Talk
