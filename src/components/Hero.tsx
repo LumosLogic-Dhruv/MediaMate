@@ -7,7 +7,7 @@ import { resources } from "@/data/resources";
 
 export default function Hero() {
   return (
-    <section className=" relative w-[100vw] min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-20 md:pt-0">
+    <section className=" relative w-[100vw] min-h-screen flex items-center justify-center overflow-hidden bg-transparent">
       {/* --- BACKGROUND ELEMENTS --- */}
 
       {/* <div className="absolute top-[-5%] right-[-10%] w-[70%] h-[80%] bg-[radial-gradient(ellipse_at_center,_#c94d87_0%,_#2d8799_35%,_#45AFC5_50%,_transparent_70%)] opacity-80 blur-[80px] z-0 pointer-events-none" /> */}
