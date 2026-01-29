@@ -17,81 +17,116 @@ export default function Insights() {
   const sliderRef = useRef<HTMLDivElement>(null);
   
   const insights = [
-    {
-      image: resources.insightsImg1.src,
-      category: "Performance Marketing",
-      title: "5 Strategies to Scale Your Ecommerce Business in 2024"
-    },
-    {
-      image: resources.insightsImg2.src,
-      category: "SEO",
-      title: "The Complete Guide to Ecommerce SEO Optimization"
-    },
-    {
-      image: resources.insightsImg3.src,
-      category: "Paid Social",
-      title: "Maximizing ROI with Advanced Facebook Ad Strategies"
-    },
-    {
-      image: resources.insightsImg1.src,
-      category: "Analytics",
-      title: "Data-Driven Decision Making for Ecommerce Growth"
-    },
-    {
-      image: resources.insightsImg2.src,
-      category: "CRO",
-      title: "Conversion Rate Optimization Best Practices"
-    }
+    { image: resources.insightsImg1.src, category: "Performance Marketing", title: "5 Strategies to Scale Your Ecommerce Business in 2024" },
+    { image: resources.insightsImg2.src, category: "SEO", title: "The Complete Guide to Ecommerce SEO Optimization" },
+    { image: resources.insightsImg3.src, category: "Paid Social", title: "Maximizing ROI with Advanced Facebook Ad Strategies" },
+    { image: resources.insightsImg1.src, category: "Analytics", title: "Data-Driven Decision Making for Ecommerce Growth" },
+    { image: resources.insightsImg2.src, category: "CRO", title: "Conversion Rate Optimization Best Practices" }
   ];
 
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
-    // Calculate width of one original set for seamless looping
+    const items = gsap.utils.toArray(slider.children);
+    // We only need the original set width for the loop math
+    const originalLength = insights.length;
     const totalWidth = slider.scrollWidth / 3;
-    
-    // Proxy element to track drag movement
-    const proxy = document.createElement("div");
 
-    // 1. Setup the Infinite Auto-Scroll
-    const animation = gsap.to(slider, {
-      x: `-=${totalWidth}`,
-      duration: 35, // Adjust speed here
-      ease: "none",
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth)
+    // Helper to create the seamless loop
+    const horizontalLoop = (items: any[], config: any) => {
+      items = gsap.utils.toArray(items);
+      config = config || {};
+      let tl = gsap.timeline({
+          repeat: config.repeat,
+          paused: config.paused,
+          defaults: { ease: "none" },
+          onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100),
+        }),
+        length = items.length,
+        startX = items[0].offsetLeft,
+        times: number[] = [],
+        widths: number[] = [],
+        xPercents: number[] = [],
+        curIndex = 0,
+        pixelsPerSecond = (config.speed || 1) * 100,
+        snap = config.snap === false ? (v: any) => v : gsap.utils.snap(config.snap || 1),
+        totalWidth, curX, distanceToStart, distanceToLoop, item, i;
+
+      gsap.set(items, {
+        xPercent: (i, target) => {
+          let w = (widths[i] = parseFloat(gsap.getProperty(target, "width", "px") as string));
+          xPercents[i] = parseFloat(gsap.getProperty(target, "xPercent") as string);
+          return xPercents[i];
+        },
+      });
+
+      totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") + (parseFloat(config.paddingRight) || 0);
+
+      for (i = 0; i < length; i++) {
+        item = items[i];
+        curX = (xPercents[i] / 100) * widths[i];
+        distanceToStart = item.offsetLeft + curX - startX;
+        distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+        tl.to(item, { xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
+          .fromTo(item, { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
+          .add("label" + i, distanceToStart / pixelsPerSecond);
+        times[i] = distanceToStart / pixelsPerSecond;
       }
+
+      function toIndex(index: number, vars: any) {
+        vars = vars || {};
+        (Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length);
+        let newIndex = gsap.utils.wrap(0, length, index),
+          time = times[newIndex];
+        if (time > tl.time() !== index > curIndex) {
+          vars.modifiers = { time: gsap.utils.unitize(gsap.utils.wrap(0, tl.duration())) };
+          time += tl.duration() * (index > curIndex ? 1 : -1);
+        }
+        curIndex = newIndex;
+        vars.overwrite = true;
+        return tl.tweenTo(time, vars);
+      }
+      tl.next = (vars: any) => toIndex(curIndex + 1, vars);
+      tl.prev = (vars: any) => toIndex(curIndex - 1, vars);
+      tl.current = () => curIndex;
+      tl.toIndex = (index: number, vars: any) => toIndex(index, vars);
+      tl.times = times;
+      tl.progress(1, true).progress(0, true);
+      if (config.reversed) {
+        tl.vars.onReverseComplete?.();
+        tl.reverse();
+      }
+      return tl;
+    };
+
+    const loop = horizontalLoop(items, {
+      repeat: -1,
+      speed: 0.5, // Control auto-scroll speed
+      paddingRight: 32, // Match your gap (6 or 8 based on Tailwind)
     });
 
-    // 2. Setup the Manual Drag
-    const draggable = Draggable.create(proxy, {
-      type: "x",
+    // Manual Drag Integration
+    const draggable = Draggable.create(document.createElement("div"), {
       trigger: containerRef.current,
+      type: "x",
       onPress() {
-        animation.pause();
-        // Sync proxy position with current slider position
-        gsap.set(this.target, { x: gsap.getProperty(slider, "x") });
+        gsap.killTweensOf(loop);
+        this.startProgress = loop.progress();
       },
       onDrag() {
-        gsap.set(slider, {
-          x: this.x % totalWidth,
-          modifiers: {
-            x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth)
-          }
-        });
+        // Sync the timeline progress with the drag distance
+        const change = (this.startX - this.x) / totalWidth;
+        loop.progress(gsap.utils.wrap(0, 1, this.startProgress + change));
       },
       onRelease() {
-        // Resume auto-scroll with a smooth ramp-up
-        animation.play();
-        gsap.fromTo(animation, { timeScale: 0 }, { timeScale: 1, duration: 1.5 });
+        // Smoothly resume auto-scroll
+        gsap.to(loop, { timeScale: 1, duration: 0.5 });
       }
     });
 
-    // Clean up on unmount
     return () => {
-      animation.kill();
+      loop.kill();
       if (draggable[0]) draggable[0].kill();
     };
   }, []);
@@ -102,65 +137,33 @@ export default function Insights() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-[100vw] py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none"
+      className="w-full py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none"
       id="insights"
-      aria-labelledby="insights-heading"
     >
       <div className="w-[90vw] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 id="insights-heading" className="text-4xl md:text-5xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
-            Insights
-          </h2>
-        </motion.div>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Insights</h2>
+        </div>
 
-        {/* GSAP Managed Scrolling Container */}
-        <div 
-          ref={containerRef}
-          className="relative w-full mx-auto cursor-grab active:cursor-grabbing touch-pan-y"
-        >
-          <div
-            ref={sliderRef}
-            className="flex gap-4 md:gap-6 lg:gap-8"
-            style={{ width: "max-content" }}
-          >
-            {/* Tripled items to ensure no gaps during loop */}
+        <div ref={containerRef} className="relative w-full cursor-grab active:cursor-grabbing touch-pan-y">
+          <div ref={sliderRef} className="flex gap-8" style={{ width: "max-content" }}>
+            {/* Duplicating just once extra is enough with the horizontalLoop helper */}
             {[...insights, ...insights, ...insights].map((insight, index) => (
               <article
                 key={index}
-                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg group cursor-pointer hover:shadow-2xl transition-all duration-300 min-w-[350px] md:min-w-[400px] p-5 pointer-events-none"
-                style={{width:"25rem"}}
+                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[350px] md:min-w-[400px] p-5 pointer-events-none"
+                style={{ width: "25rem" }}
               >
-                <div className="relative overflow-hidden h-64 md:h-64 rounded-2xl">
-                  <Image
-                    src={insight.image}
-                    alt={insight.title}
-                    fill
-                    sizes="(max-width: 768px) 350px, 400px"
-                    quality={60}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                <div className="relative overflow-hidden h-64 rounded-2xl">
+                  <Image src={insight.image} alt={insight.title} fill className="object-cover" />
                 </div>
 
                 <div className="p-4 md:p-6 pointer-events-auto">
-                  <div className="mb-2 md:mb-3">
-                    <span className="text-[#45AFC5] rounded-full text-lg font-bold">
-                      {insight.category}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 line-clamp-2 group-hover:text-[#DF5E99] transition-colors leading-tight">
+                  <span className="text-[#45AFC5] text-lg font-bold">{insight.category}</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 my-4 line-clamp-2 leading-tight">
                     {insight.title}
                   </h3>
-
-                  <button
-                    className="flex items-center border px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium hover:text-[#45AFC5] transition-colors text-sm md:text-base border-[#DF5E99]"
-                    aria-label={`Read more: ${insight.title}`}
-                  >
+                  <button className="flex items-center border border-[#DF5E99] px-5 py-2 rounded-full space-x-2 text-[#DF5E99] font-medium hover:bg-pink-50 transition-all">
                     <span>Learn More</span>
                     <ArrowRight className="h-4 w-4" />
                   </button>
