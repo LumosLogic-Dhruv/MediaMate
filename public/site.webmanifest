@@ -1,36 +1,61 @@
 {
   "name": "MediaMate - Performance Marketing Solutions",
   "short_name": "MediaMate",
-  "description": "We scale ecommerce brands with precision performance marketing & search",
+  "description": "We scale ecommerce brands with precision performance marketing & search. Drive growth with data-driven strategies that deliver measurable results.",
   "start_url": "/",
+  "id": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#DF5E99",
+  "categories": ["business", "marketing"],
+  "lang": "en-US",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
-      "src": "/favicon.svg",
+      "src": "/favicon-16x16.png",
       "sizes": "16x16",
-      "type": "image/svg+xml"
+      "type": "image/png"
     },
     {
-      "src": "/favicon.svg",
+      "src": "/favicon-32x32.png",
       "sizes": "32x32",
-      "type": "image/svg+xml"
+      "type": "image/png"
     },
     {
-      "src": "/favicon.svg",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/svg+xml"
+      "type": "image/png"
     },
     {
-      "src": "/favicon.svg",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "MediaMate Homepage"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
 }

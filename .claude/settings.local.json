@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(copy \"public\\\\1.webp\" \"public\\\\og-image.webp\")",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

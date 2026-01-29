@@ -17,11 +17,46 @@ export default function SuccessStories() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const stories = [
-    { logo: resources.googleLogo.src, company: "TechStart", metric1: "85%", title1: "Increase App Installation", metric2: "50%", title2: "Increase in Daily Active User" },
-    { logo: resources.metaLogo.src, company: "AppFlow", metric1: "127%", title1: "Increase App Installation", metric2: "73%", title2: "Increase in Daily Active User" },
-    { logo: resources.shopifyLogo.src, company: "EcomPlus", metric1: "200%", title1: "Increase App Installation", metric2: "95%", title2: "Increase in Daily Active User" },
-    { logo: resources.microsoftLogo.src, company: "ScaleUp", metric1: "156%", title1: "Increase App Installation", metric2: "82%", title2: "Increase in Daily Active User" },
-    { logo: resources.nvidiaLogo.src, company: "GrowthCo", metric1: "178%", title1: "Increase App Installation", metric2: "64%", title2: "Increase in Daily Active User" }
+    {
+      logo: resources.googleLogo.src,
+      company: "TechStart",
+      metric1: "85%",
+      title1: "Increase App Installation",
+      metric2: "50%",
+      title2: "Increase in Daily Active User",
+    },
+    {
+      logo: resources.metaLogo.src,
+      company: "AppFlow",
+      metric1: "127%",
+      title1: "Increase App Installation",
+      metric2: "73%",
+      title2: "Increase in Daily Active User",
+    },
+    {
+      logo: resources.shopifyLogo.src,
+      company: "EcomPlus",
+      metric1: "200%",
+      title1: "Increase App Installation",
+      metric2: "95%",
+      title2: "Increase in Daily Active User",
+    },
+    {
+      logo: resources.microsoftLogo.src,
+      company: "ScaleUp",
+      metric1: "156%",
+      title1: "Increase App Installation",
+      metric2: "82%",
+      title2: "Increase in Daily Active User",
+    },
+    {
+      logo: resources.nvidiaLogo.src,
+      company: "GrowthCo",
+      metric1: "178%",
+      title1: "Increase App Installation",
+      metric2: "64%",
+      title2: "Increase in Daily Active User",
+    },
   ];
 
   useEffect(() => {
@@ -32,25 +67,30 @@ export default function SuccessStories() {
     const totalWidth = slider.scrollWidth / 3;
 
     // Helper to create the seamless loop with explicit types to fix Build errors
-    const horizontalLoop = (items: HTMLElement[], config: any) => {
+    const horizontalLoop = (items: HTMLElement[], config: Record<string, unknown>) => {
       items = gsap.utils.toArray(items);
       config = config || {};
-      let tl = gsap.timeline({
-          repeat: config.repeat,
-          paused: config.paused,
-          defaults: { ease: "none" },
-          onReverseComplete: () => { 
-            tl.totalTime(tl.rawTime() + tl.duration() * 100); 
-          }, // Fixed: Wrapped in braces to return void
-        }),
-        length = items.length,
-        startX = items[0].offsetLeft,
-        times: number[] = [],
-        widths: number[] = [],
-        xPercents: number[] = [],
-        pixelsPerSecond = (config.speed || 1) * 100,
-        snap = config.snap === false ? (v: any) => v : gsap.utils.snap(config.snap || 1),
-        totalWidth: number, curX: number, distanceToStart: number, distanceToLoop: number, item: HTMLElement, i: number;
+      const tl = gsap.timeline({
+        repeat: config.repeat as number,
+        paused: config.paused as boolean,
+        defaults: { ease: "none" },
+        onReverseComplete: () => {
+          tl.totalTime(tl.rawTime() + tl.duration() * 100);
+        },
+      });
+      const length = items.length;
+      const startX = items[0].offsetLeft;
+      const times: number[] = [];
+      const widths: number[] = [];
+      const xPercents: number[] = [];
+      const pixelsPerSecond = ((config.speed as number) || 1) * 100;
+      const snap = config.snap === false ? (v: number) => v : gsap.utils.snap((config.snap as number) || 1);
+      let totalWidth: number,
+        curX: number,
+        distanceToStart: number,
+        distanceToLoop: number,
+        item: HTMLElement,
+        i: number;
 
       gsap.set(items, {
         xPercent: (i, target) => {
@@ -61,15 +101,24 @@ export default function SuccessStories() {
         force3D: true,
       });
 
-      totalWidth = items[length - 1].offsetLeft + (xPercents[length - 1] / 100) * widths[length - 1] - startX + items[length - 1].offsetWidth * (gsap.getProperty(items[length - 1], "scaleX") as number) + (parseFloat(config.paddingRight) || 0);
+      totalWidth =
+        items[length - 1].offsetLeft +
+        (xPercents[length - 1] / 100) * widths[length - 1] -
+        startX +
+        items[length - 1].offsetWidth * (gsap.getProperty(items[length - 1], "scaleX") as number) +
+        (parseFloat(config.paddingRight as string) || 0);
 
       for (i = 0; i < length; i++) {
         item = items[i];
         curX = (xPercents[i] / 100) * widths[i];
         distanceToStart = item.offsetLeft + curX - startX;
         distanceToLoop = distanceToStart + widths[i] * (gsap.getProperty(item, "scaleX") as number);
-        tl.to(item, { xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
-          .fromTo(item, { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond);
+        tl.to(item, { xPercent: snap(((curX - distanceToLoop) / widths[i]) * 100), duration: distanceToLoop / pixelsPerSecond }, 0).fromTo(
+          item,
+          { xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100) },
+          { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false },
+          distanceToLoop / pixelsPerSecond
+        );
         times[i] = distanceToStart / pixelsPerSecond;
       }
 
@@ -96,7 +145,7 @@ export default function SuccessStories() {
       },
       onRelease() {
         gsap.to(loop, { timeScale: 1, duration: 0.8, ease: "sine.inOut" });
-      }
+      },
     });
 
     return () => {
@@ -106,28 +155,29 @@ export default function SuccessStories() {
   }, []);
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
       className="w-full overflow-hidden py-16 md:py-20 bg-white select-none"
       id="success-stories"
+      aria-label="Success stories from our clients"
     >
       <div className="w-[90vw] mx-auto mb-12 text-center">
-        <h2 className="font-bold text-gray-800 mb-4">
-          Success Stories
-        </h2>
+        <h2 className="font-bold text-gray-800 mb-4">Success Stories</h2>
         <p className="text-body-base md:text-body-lg text-gray-600 max-w-2xl mx-auto px-4">
           Real results from real clients
         </p>
       </div>
 
-      <div 
-        ref={containerRef} 
+      <div
+        ref={containerRef}
         className="relative w-full cursor-grab active:cursor-grabbing touch-pan-y"
+        role="region"
+        aria-label="Success stories carousel - drag to scroll"
       >
-        <div 
+        <div
           ref={sliderRef}
           className="flex gap-8 flex-nowrap"
           style={{ width: "max-content", willChange: "transform" }}
@@ -137,22 +187,33 @@ export default function SuccessStories() {
               key={index}
               className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 text-center shadow-lg min-w-[320px] md:min-w-[400px] pointer-events-none"
               style={{ backfaceVisibility: "hidden" }}
+              aria-label={`${story.company} success story`}
             >
               <div className="w-full h-48 rounded-xl border border-gray-500 p-5 flex justify-center items-center mb-5">
                 <div className="relative w-full h-full">
-                  <Image src={story.logo} alt={story.company} fill className="object-contain" priority={index < 5} />
+                  <Image
+                    src={story.logo}
+                    alt={`${story.company} logo`}
+                    fill
+                    className="object-contain"
+                    loading={index < 5 ? "eager" : "lazy"}
+                    sizes="(max-width: 768px) 280px, 360px"
+                  />
                 </div>
               </div>
 
-              <div className="font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
+              <div className="text-h3 font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
               <div className="text-body-base text-black mb-4 font-medium">{story.title1}</div>
-              <div className="font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
+              <div className="text-h3 font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
               <div className="text-body-base text-black mb-6 font-medium">{story.title2}</div>
 
-              <div className="inline-flex items-center border border-[#DF5E99] px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors text-body-sm">
+              <a
+                href="#contact"
+                className="inline-flex items-center border border-[#DF5E99] px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
+              >
                 <span>Learn More</span>
-                <ArrowRight className="h-4 w-4" />
-              </div>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </article>
           ))}
         </div>

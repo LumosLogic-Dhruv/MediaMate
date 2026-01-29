@@ -7,20 +7,20 @@ import { resources } from "@/data/resources";
 
 export default function Hero() {
   return (
-    <section className=" relative w-[100vw] min-h-screen flex items-center justify-center overflow-hidden bg-transparent">
+    <section
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-transparent"
+      aria-label="Hero section"
+    >
       {/* --- BACKGROUND ELEMENTS --- */}
 
-      {/* <div className="absolute top-[-5%] right-[-10%] w-[70%] h-[80%] bg-[radial-gradient(ellipse_at_center,_#c94d87_0%,_#2d8799_35%,_#45AFC5_50%,_transparent_70%)] opacity-80 blur-[80px] z-0 pointer-events-none" /> */}
-
-      {/* <div className="absolute top-[10%] right-[5%] w-[40%] h-[50%] bg-[radial-gradient(circle_at_center,_#DF5E99_0%,_#b4487d_40%,_transparent_70%)] opacity-60 blur-[60px] z-0 pointer-events-none" /> */}
-
       {/* 3. DECORATIVE WAVE LINES */}
-      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden" aria-hidden="true">
         <svg
           className="w-full h-full"
           viewBox="0 0 1440 800"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             d="M-200 400 C 400 200, 800 700, 1600 100"
@@ -48,10 +48,9 @@ export default function Hero() {
       </div>
 
       {/* Main content container */}
-      <div className="relative z-10 w-[100vw] px-4 ">
+      <div className="relative z-10 w-full px-4">
         <div className="w-[90vw] mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
             {/* --- LEFT CONTENT --- */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -70,29 +69,48 @@ export default function Hero() {
               </p>
 
               {/* IMPROVED RESPONSIVE BUTTON GROUP */}
-              <div className="gradient-bg-pink-blue flex flex-col sm:flex-row gap-3 sm:gap-2 max-w-xl lg:max-w-3xl mx-auto lg:mx-0 rounded-2xl sm:rounded-full p-2 sm:p-2 md:p-3">
+              <form
+                className="gradient-bg-pink-blue flex flex-col sm:flex-row gap-3 sm:gap-2 max-w-xl lg:max-w-3xl mx-auto lg:mx-0 rounded-2xl sm:rounded-full p-2 sm:p-2 md:p-3"
+                onSubmit={(e) => e.preventDefault()}
+                aria-label="Email subscription form"
+              >
                 <div className="flex-1 relative">
-                  <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <label htmlFor="hero-email" className="sr-only">
+                    Enter your email address
+                  </label>
+                  <Mail
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
+                    aria-hidden="true"
+                  />
                   <input
+                    id="hero-email"
                     type="email"
+                    name="email"
                     placeholder="Enter your email"
-                    className="w-full pl-11 pr-4 py-3 md:py-4 rounded-xl sm:rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 bg-white text-body-sm md:text-body-base"
+                    autoComplete="email"
+                    required
+                    className="w-full pl-11 pr-4 py-3 md:py-4 rounded-xl sm:rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 focus:border-[#DF5E99] bg-white text-body-sm md:text-body-base transition-shadow"
                   />
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-[#2d8799] border border-white/20 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl sm:rounded-full font-semibold shadow-md hover:shadow-xl transition-all flex items-center justify-center text-body-sm md:text-btn whitespace-nowrap"
+                  type="submit"
+                  className="bg-[#2d8799] border border-white/20 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl sm:rounded-full font-semibold shadow-md hover:shadow-xl transition-all flex items-center justify-center text-body-sm md:text-btn whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#DF5E99]"
                 >
                   <span className="flex items-center">
                     Submit
-                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" aria-hidden="true" />
                   </span>
                 </motion.button>
-              </div>
+              </form>
             </motion.div>
+
             {/* --- RIGHT CONTENT: OVERLAPPING IMAGES --- */}
-            <div className="relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px] w-full flex items-center justify-center order-1 lg:order-2">
+            <div
+              className="relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px] w-full flex items-center justify-center order-1 lg:order-2"
+              aria-hidden="true"
+            >
               {/* Main Background Image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -105,8 +123,8 @@ export default function Hero() {
                   alt={resources.heroImg1.alt}
                   fill
                   priority
-                  quality={60}
-                  sizes="(max-width: 768px) 55vw, 60vw"
+                  quality={75}
+                  sizes="(max-width: 640px) 60vw, (max-width: 768px) 55vw, (max-width: 1024px) 45vw, 35vw"
                   className="object-cover"
                 />
               </motion.div>
@@ -122,6 +140,9 @@ export default function Hero() {
                   src={resources.heroImg3.src}
                   alt={resources.heroImg3.alt}
                   fill
+                  priority
+                  quality={75}
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 45vw, (max-width: 1024px) 35vw, 25vw"
                   className="object-cover"
                 />
               </motion.div>
@@ -137,6 +158,9 @@ export default function Hero() {
                   src={resources.heroImg2.src}
                   alt={resources.heroImg2.alt}
                   fill
+                  priority
+                  quality={75}
+                  sizes="(max-width: 640px) 55vw, (max-width: 768px) 50vw, (max-width: 1024px) 40vw, 30vw"
                   className="object-cover"
                 />
               </motion.div>
@@ -145,16 +169,19 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, y: 0 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -15, 0], rotate: [0, 5, 0] }}
-                transition={{ 
+                transition={{
                   opacity: { duration: 0.8, ease: "easeOut" },
                   scale: { duration: 0.8, ease: "easeOut" },
                   y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                  rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                 }}
                 className="absolute top-[20%] left-[35%] sm:left-[40%] z-40 w-12 h-12 sm:w-14 sm:h-14 md:w-20 md:h-20 lg:w-24 lg:h-24 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full flex items-center justify-center shadow-[0_10px_40px_-10px_rgba(223,94,153,0.5)] border-[2px] sm:border-[3px] md:border-[4px] lg:border-[6px] border-white/50 backdrop-blur-md"
               >
                 <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center border border-white/20">
-                  <Rocket className="text-white h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 drop-shadow-md" />
+                  <Rocket
+                    className="text-white h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 drop-shadow-md"
+                    aria-hidden="true"
+                  />
                 </div>
               </motion.div>
             </div>
