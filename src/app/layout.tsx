@@ -90,7 +90,6 @@ export default function RootLayout({
         <link rel="sitemap" href="/sitemap.xml" type="application/xml" />
         <meta name="theme-color" content="#DF5E99" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="+AQQAVFD1Uxs/xEMuwGs8w" async />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full overflow-x-hidden`}
