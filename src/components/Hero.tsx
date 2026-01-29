@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Mail, ArrowRight, Rocket } from "lucide-react";
+import Image from "next/image";
+import { resources } from "@/data/resources";
 
 export default function Hero() {
   return (
@@ -98,10 +100,11 @@ export default function Hero() {
                 transition={{ duration: 1 }}
                 className="absolute left-0 sm:left-5 bottom-5 lg:bottom-10 z-10 w-[60%] sm:w-[55%] h-[65%] lg:h-[75%] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden border-[4px] sm:border-[6px] md:border-[8px] lg:border-[12px] border-white shadow-2xl"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80"
-                  alt="Main"
-                  className="w-full h-full object-cover"
+                <Image
+                  src={resources.heroImg1.src}
+                  alt={resources.heroImg1.alt}
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
 
@@ -112,10 +115,11 @@ export default function Hero() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="absolute top-0 right-0 sm:right-4 z-20 w-[50%] sm:w-[45%] h-[45%] sm:h-[50%] lg:h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[50px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white shadow-xl"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80"
-                  alt="Man"
-                  className="w-full h-full object-cover"
+                <Image
+                  src={resources.heroImg3.src}
+                  alt={resources.heroImg3.alt}
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
 
@@ -126,10 +130,11 @@ export default function Hero() {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="absolute bottom-6 sm:bottom-8 md:bottom-10 lg:bottom-16 right-0 z-30 w-[55%] sm:w-[50%] h-[28%] sm:h-[30%] lg:h-[35%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white shadow-2xl"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80"
-                  alt="Workspace"
-                  className="w-full h-full object-cover"
+                <Image
+                  src={resources.heroImg2.src}
+                  alt={resources.heroImg2.alt}
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
 

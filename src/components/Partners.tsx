@@ -1,15 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { resources } from "@/data/resources";
 
 export default function Partners() {
   const partners = [
-    { name: "Google Partner", logo: "/companies/google.webp" },
-    { name: "Shopify", logo: "/companies/shopify.webp" },
-    { name: "Microsoft", logo: "/companies/microsoft.webp" },
-    { name: "Meta", logo: "/companies/meta.webp" },
-    { name: "Nvidia", logo: "/companies/nvidia.webp" },
-    { name: "Oracle", logo: "/companies/oracle.webp" }
+    { name: "Google Partner", logo: resources.googleLogo.src },
+    { name: "Shopify", logo: resources.shopifyLogo.src },
+    { name: "Microsoft", logo: resources.microsoftLogo.src },
+    { name: "Meta", logo: resources.metaLogo.src },
+    { name: "Nvidia", logo: resources.nvidiaLogo.src },
+    { name: "Oracle", logo: resources.oracleLogo.src }
   ];
 
   return (

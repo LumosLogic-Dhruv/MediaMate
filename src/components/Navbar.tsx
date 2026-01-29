@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Image from "next/image";
+import { resources } from "@/data/resources";
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -20,8 +21,8 @@ export default function Navbar() {
           {/* Logo - Left Side */}
           <div className="flex items-center flex-shrink-0">
             <Image
-              src="/logo.svg"
-              alt="MediaMate Logo"
+              src={resources.logo.src}
+              alt={resources.logo.alt}
               width={120}
               height={40}
               className="object-contain w-24 md:w-[120px]"

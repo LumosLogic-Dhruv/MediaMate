@@ -3,13 +3,14 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { resources } from "@/data/resources";
 
 export default function SuccessStories() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const stories = [
     {
-      logo: "/companies/google.webp",
+      logo: resources.googleLogo.src,
       company: "TechStart",
       metric1: "85%",
       title1: "Increase App Installation",
@@ -17,7 +18,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "/companies/meta.webp",
+      logo: resources.metaLogo.src,
       company: "AppFlow",
       metric1: "127%",
       title1: "Increase App Installation",
@@ -25,7 +26,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "/companies/shopify.webp",
+      logo: resources.shopifyLogo.src,
       company: "EcomPlus",
       metric1: "200%",
       title1: "Increase App Installation",
@@ -33,7 +34,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "/companies/microsoft.webp",
+      logo: resources.microsoftLogo.src,
       company: "ScaleUp",
       metric1: "156%",
       title1: "Increase App Installation",
@@ -41,7 +42,7 @@ export default function SuccessStories() {
       title2: "Increase in Daily Active User"
     },
     {
-      logo: "/companies/nvidia.webp",
+      logo: resources.nvidiaLogo.src,
       company: "GrowthCo",
       metric1: "178%",
       title1: "Increase App Installation",

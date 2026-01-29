@@ -3,33 +3,34 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { resources } from "@/data/resources";
 
 export default function Insights() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   const insights = [
     {
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80",
+      image: resources.insightsImg1.src,
       category: "Performance Marketing",
       title: "5 Strategies to Scale Your Ecommerce Business in 2024"
     },
     {
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80",
+      image: resources.insightsImg2.src,
       category: "SEO",
       title: "The Complete Guide to Ecommerce SEO Optimization"
     },
     {
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80",
+      image: resources.insightsImg3.src,
       category: "Paid Social",
       title: "Maximizing ROI with Advanced Facebook Ad Strategies"
     },
     {
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80",
+      image: resources.insightsImg1.src,
       category: "Analytics",
       title: "Data-Driven Decision Making for Ecommerce Growth"
     },
     {
-      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&q=80",
+      image: resources.insightsImg2.src,
       category: "CRO",
       title: "Conversion Rate Optimization Best Practices"
     }

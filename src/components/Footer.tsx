@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { resources } from "@/data/resources";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -55,8 +56,8 @@ export default function Footer() {
               {/* Company Logo */}
               <div className="relative w-56 h-32 md:w-64 md:h-32 mx-auto lg:mx-0">
                 <Image
-                  src="/logo.svg"
-                  alt="MediaMate Logo"
+                  src={resources.logo.src}
+                  alt={resources.logo.alt}
                   fill
                   className="object-contain"
                 />
