@@ -161,11 +161,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "MediaMate | Performance Marketing Agency",
-    template: "%s | MediaMate"
+    default: "MediaMate | Performance Marketing Agency to Increase App Installation",
+    template: "%s | MediaMate - Increase App Installation & Daily Active Users"
   },
-  description: "Performance marketing agency for ecommerce. Expert paid search, SEO services, and conversion rate optimization to scale your brand.",
+  description: "Learn how to increase app installation and daily active users with MediaMate. Expert performance marketing strategies to grow your ecommerce business with proven results.",
   keywords: [
+    "increase app installation",
+    "daily active users",
     "performance marketing agency",
     "ecommerce marketing",
     "paid search services",
@@ -174,8 +176,11 @@ export const metadata: Metadata = {
     "digital marketing agency",
     "ecommerce growth",
     "paid social advertising",
-    "PPC management",
-    "Google Ads agency"
+    "learn marketing",
+    "app installation strategy",
+    "user acquisition",
+    "Google Ads agency",
+    "PPC management"
   ],
   authors: [{ name: "MediaMate", url: "https://mediamate.com" }],
   creator: "MediaMate",
@@ -199,7 +204,7 @@ export const metadata: Metadata = {
     canonical: "https://mediamate.com",
   },
   openGraph: {
-    title: "MediaMate - Performance Marketing & Search Solutions",
+    title: "MediaMate - Performance Marketing & Search Solutions | Scale Your Ecommerce Brand",
     description: "Scale your ecommerce brand with precision performance marketing & search. Drive growth with data-driven strategies that deliver 40% enrollment lift, 58% CTR, and 2X conversions.",
     url: "https://mediamate.com",
     siteName: "MediaMate",

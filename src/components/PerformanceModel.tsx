@@ -130,12 +130,11 @@ export default function PerformanceModel() {
                     <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-5 bg-white/20 backdrop-blur-sm">
                       <Image
                         src={feature.icon}
-                        alt=""
+                        alt={`${feature.title} - ${feature.description}`}
                         width={48}
                         height={48}
                         className="h-10 w-10 md:h-12 md:w-12"
                         loading="lazy"
-                        aria-hidden="true"
                       />
                     </div>
 
@@ -189,12 +188,11 @@ export default function PerformanceModel() {
                     <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-5 bg-white/20 backdrop-blur-sm">
                       <Image
                         src={feature.icon}
-                        alt=""
+                        alt={`${feature.title} - ${feature.description}`}
                         width={48}
                         height={48}
                         className="h-10 w-10 md:h-12 md:w-12"
                         loading="lazy"
-                        aria-hidden="true"
                       />
                     </div>
 

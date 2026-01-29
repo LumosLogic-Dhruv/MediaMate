@@ -52,7 +52,7 @@ export default function Stats() {
                 >
                   <Image
                     src={stat.icon}
-                    alt=""
+                    alt={`${stat.label} icon - ${stat.subtitle}`}
                     width={32}
                     height={32}
                     className="h-6 w-6 md:h-8 md:w-8 filter brightness-0 invert"
