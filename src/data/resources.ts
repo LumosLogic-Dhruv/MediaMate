@@ -21,9 +21,9 @@ import companyLogo from '../../public/logo.svg';
 
 export const resources = {
   // Hero Images
-  heroImg1: { src: heroImg1.src, alt: 'Ecommerce marketing team collaborating on performance marketing strategy' },
-  heroImg2: { src: heroImg2.src, alt: 'Digital marketing workspace with analytics dashboards for conversion rate optimization' },
-  heroImg3: { src: heroImg3.src, alt: 'Marketing professional reviewing paid search campaign results' },
+  heroImg1: { src: heroImg1.src, alt: 'A high-energy candid photo of two people laughing and singing into a microphone; one person is wearing a green jacket with floral patterns and sunglasses' },
+  heroImg2: { src: heroImg2.src, alt: 'A wide shot of a modern co-working space or cafe with people sitting at a long pink table working on laptops' },
+  heroImg3: { src: heroImg3.src, alt: 'A portrait of a smiling man with a beard, wearing round glasses, a white t-shirt, and a dark beanie' },
 
   // Company Logos
   googleLogo: { src: googleLogo.src, alt: 'Google Partner certified agency badge' },

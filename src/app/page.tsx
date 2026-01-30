@@ -121,7 +121,16 @@ const BackgroundGradient = dynamic(
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen bg-white overflow-x-hidden">
+    <div 
+      className="w-full min-h-screen bg-white overflow-x-hidden"
+      style={{ 
+        backgroundImage: 'url(/Home.svg)', 
+        backgroundSize: 'contain', 
+        backgroundPosition: 'top', 
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'transparent',
+      }}
+    >
       {/* Header section with background gradient */}
       <header className="relative">
         <BackgroundGradient />

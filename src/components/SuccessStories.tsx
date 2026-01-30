@@ -160,15 +160,12 @@ export default function SuccessStories() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full overflow-hidden py-16 md:py-20 bg-white select-none"
+      className="w-full overflow-hidden py-16 md:py-20 select-none"
       id="success-stories"
       aria-label="Success stories from our clients"
     >
       <div className="w-[90vw] mx-auto mb-12 text-center">
         <h2 className="font-bold text-gray-800 mb-4">Success Stories</h2>
-        <p className="text-body-base md:text-body-lg text-gray-600 max-w-2xl mx-auto px-4">
-          Real results from real clients
-        </p>
       </div>
 
       <div
@@ -185,12 +182,12 @@ export default function SuccessStories() {
           {[...stories, ...stories, ...stories].map((story, index) => (
             <article
               key={index}
-              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 text-center shadow-lg min-w-[320px] md:min-w-[400px] pointer-events-none"
+              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 text-center shadow-lg min-w-[320px] md:min-w-[400px] min-h-[580px] md:min-h-[600px] pointer-events-none"
               style={{ backfaceVisibility: "hidden" }}
               aria-label={`${story.company} success story`}
             >
-              <div className="w-full h-48 rounded-xl border border-gray-500 p-5 flex justify-center items-center mb-5">
-                <div className="relative w-full h-full">
+              <div className="w-full h-64 rounded-xl border border-gray-500 p-10 flex justify-center items-center mb-5">
+                <div className="relative w-full h-full ">
                   <Image
                     src={story.logo}
                     alt={`${story.company} logo`}
@@ -202,10 +199,10 @@ export default function SuccessStories() {
                 </div>
               </div>
 
-              <div className="text-h3 font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
-              <div className="text-body-base text-black mb-4 font-medium">{story.title1}</div>
-              <div className="text-h3 font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
-              <div className="text-body-base text-black mb-6 font-medium">{story.title2}</div>
+              <div className="text-h2 font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
+              <div className="text-body-lg text-black mb-4 font-medium">{story.title1}</div>
+              <div className="text-h2 font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
+              <div className="text-body-lg text-black mb-6 font-medium">{story.title2}</div>
 
               <a
                 href="#contact"

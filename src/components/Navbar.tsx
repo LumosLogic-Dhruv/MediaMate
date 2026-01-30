@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { resources } from "@/data/resources";
 
@@ -112,7 +112,7 @@ export default function Navbar() {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="sticky top-0 z-50 px-3 sm:px-4 mt-5"
+        className="fixed-top top-0 z-50 px-3 sm:px-4 mt-5"
         role="navigation"
         aria-label="Main navigation"
       >
@@ -133,7 +133,7 @@ export default function Navbar() {
 
           {/* Navigation Links - Center with Rounded Black BG */}
           <div className="hidden lg:flex items-center h-[9vh] max-w-7xl px-5 py-2 rounded-full">
-            <div className="bg-[#222222] h-full rounded-full px-5 xl:px-6 py-4 flex items-center space-x-3 xl:space-x-6">
+            <div className="bg-[#222222] h-full flex justify-evenly rounded-full w-[40vw] px-5 xl:px-6 py-4 items-center space-x-3 xl:space-x-6">
               <a
                 href="#about"
                 className="text-white hover:text-[#DF5E99] focus:text-[#DF5E99] transition-colors text-nav whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:ring-offset-2 focus-visible:ring-offset-[#222222] rounded"
@@ -154,7 +154,7 @@ export default function Navbar() {
                 >
                   Services{" "}
                   <ChevronDown
-                    className={`ml-1 h-3 w-3 transition-transform ${
+                    className={`ml-1 h-5 w-5 transition-transform ${
                       activeDropdown === "services" ? "rotate-180" : ""
                     }`}
                     aria-hidden="true"
@@ -169,7 +169,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full mt-3 left-1/2 transform -translate-x-1/2"
+                      className="absolute top-full mt-8 left-1/2 transform -translate-x-1/2"
                       role="menu"
                       aria-label="Services menu"
                     >
@@ -189,7 +189,7 @@ export default function Navbar() {
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: index * 0.05 }}
-                              className="group flex flex-col items-center text-center p-3 rounded-2xl hover:bg-gradient-to-br hover:from-[#DF5E99]/10 hover:to-[#45AFC5]/10 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:rounded-2xl"
+                              className="group flex justify-between items-center text-center p-3 rounded-2xl hover:bg-gradient-to-br hover:from-[#DF5E99]/10 hover:to-[#45AFC5]/10 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:rounded-2xl"
                               role="menuitem"
                             >
                               {/* Icon Container with Glow Effect */}
@@ -203,7 +203,7 @@ export default function Navbar() {
                                 {IconMap[service.icon]}
                               </div>
                               {/* Label */}
-                              <span className="text-xs font-bold text-gray-700 group-hover:text-[#DF5E99] transition-colors duration-200 leading-tight">
+                              <span className="ml-2 text-xs font-bold text-gray-700 group-hover:text-[#DF5E99] transition-colors duration-200 leading-tight">
                                 {service.label}
                               </span>
                             </motion.a>
@@ -241,7 +241,7 @@ export default function Navbar() {
                 >
                   Insights{" "}
                   <ChevronDown
-                    className={`ml-1 h-3 w-3 transition-transform ${
+                    className={`ml-1 h-5 w-5 transition-transform ${
                       activeDropdown === "insights" ? "rotate-180" : ""
                     }`}
                     aria-hidden="true"
@@ -283,11 +283,11 @@ export default function Navbar() {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex gradient-bg-pink-blue text-white px-4 lg:px-5 py-2.5 lg:py-4 rounded-full font-medium shadow-md hover:shadow-lg transition-shadow text-btn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:ring-offset-2"
+            className="hidden md:flex items-center bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] text-white px-5 lg:px-6 py-3 lg:py-4 border border-white rounded-full font-medium shadow-md hover:shadow-lg transition-shadow text-btn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:ring-offset-2"
           >
             <span className="flex justify-center items-center">
               Let&apos;s Talk
-              <ChevronRight className="ml-1 h-4 w-4 lg:h-5 lg:w-5" aria-hidden="true" />
+              <ArrowRight className="ml-1 h-4 w-4 lg:h-5 lg:w-5" aria-hidden="true" />
             </span>
           </motion.a>
 
@@ -395,7 +395,7 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Let&apos;s Talk
-                    <ChevronRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                   </motion.a>
                 </div>
               </nav>

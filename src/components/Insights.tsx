@@ -173,16 +173,13 @@ export default function Insights() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none"
+      className="w-full py-16 md:py-20 px-4 bg-gradient-to-r from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none "
       id="insights"
       aria-label="Latest insights and articles"
     >
       <div className="w-[90vw] mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-bold text-black mb-4">Insights</h2>
-          <p className="text-body-base text-gray-700 max-w-xl mx-auto">
-            Expert articles and guides to help you grow your ecommerce business
-          </p>
         </div>
 
         <div
@@ -196,11 +193,11 @@ export default function Insights() {
             {[...insights, ...insights, ...insights].map((insight, index) => (
               <article
                 key={index}
-                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[350px] md:min-w-[400px] p-5 pointer-events-none"
+                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[350px] md:min-w-[400px] p-5 pointer-events-none min-h-[530px] md:min-h-[550px]"
                 style={{ width: "25rem" }}
                 aria-label={insight.title}
               >
-                <div className="relative overflow-hidden h-64 rounded-2xl">
+                <div className="relative overflow-hidden h-72 rounded-2xl">
                   <Image
                     src={insight.image}
                     alt={`${insight.category} article illustration`}
@@ -212,15 +209,28 @@ export default function Insights() {
                 </div>
 
                 <div className="p-4 md:p-6 pointer-events-auto">
-                  <span className="text-[#45AFC5] text-body-base font-bold">{insight.category}</span>
+                  <span className="text-[#45AFC5] text-body-lg font-bold">{insight.category}</span>
                   <h3 className="text-h4 font-bold text-gray-800 my-4 line-clamp-2 leading-tight">{insight.title}</h3>
-                  <a
-                    href="#insights"
-                    className="flex items-center border border-[#DF5E99] px-5 py-2 rounded-full space-x-2 text-[#DF5E99] font-medium hover:bg-pink-50 transition-all text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const element = document.getElementById('insights');
+                      element?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="group relative p-[1px] inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] transition-all hover:shadow-lg active:scale-95"
                   >
-                    <span>Read More</span>
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
+                    {/* The Inner Container (Matches your original button styling) */}
+                    <div className="flex items-center space-x-2 px-5 py-2 rounded-full bg-white group-hover:bg-pink-50 transition-all">
+                      <span className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] bg-clip-text text-transparent font-medium text-body-sm">
+                        Read More
+                      </span>
+                      <ArrowRight 
+  className="h-4 w-4" 
+  style={{ stroke: "#EB5896", filter: "drop-shadow(2px 0px 0px #3CB4C7)" }} 
+  aria-hidden="true" 
+/>
+                    </div>
+                  </button>
                 </div>
               </article>
             ))}

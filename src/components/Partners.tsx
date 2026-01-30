@@ -20,7 +20,7 @@ export default function Partners() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full py-16 md:py-20 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35"
+      className="relative z-20 w-full py-16 md:py-16 mt-2 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35"
       aria-label="Our Partner Networks"
     >
       <div className="w-[90vw] mx-auto">
@@ -28,12 +28,9 @@ export default function Partners() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12"
+          className="text-center "
         >
-          <h2 className="font-bold text-black mb-3 md:mb-4">Network Agencies</h2>
-          <p className="text-body-base text-gray-700 max-w-xl mx-auto">
-            Trusted by industry leaders and certified across major platforms
-          </p>
+          <h2 className="font-bold text-black">Network Agencies</h2>
         </motion.div>
 
         {/* Auto-scrolling container */}
@@ -57,13 +54,13 @@ export default function Partners() {
             {[...partners, ...partners, ...partners].map((partner, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center group min-w-[140px] md:min-w-[160px]"
+                className="flex flex-col items-center justify-center group min-w-[160px] md:min-w-[180px]"
               >
-                <div className="w-full h-24 md:w-34 flex items-center justify-center">
+                <div className="w-full h-34 md:w-40 flex items-center justify-center">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
-                    width={140}
+                    width={160} 
                     height={60}
                     quality={60}
                     sizes="(max-width: 768px) 120px, 160px"

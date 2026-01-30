@@ -168,7 +168,7 @@ export default function Footer() {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow whitespace-nowrap text-btn focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-shadow whitespace-nowrap text-btn focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a] disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     <span>{isSubmitting ? "Sending..." : "Submit"}</span>
                     <ArrowRight className="h-5 w-5" aria-hidden="true" />

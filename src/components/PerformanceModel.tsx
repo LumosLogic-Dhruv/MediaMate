@@ -38,31 +38,9 @@ export default function PerformanceModel() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full py-20 md:py-30 px-4 relative overflow-hidden"
+      className="w-full py-20 md:py-20 px-4 relative overflow-hidden"
       aria-label="Performance model section"
     >
-      {/* Subtle Background Curves */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <svg className="absolute top-0 right-0 w-1/2 h-full opacity-20" viewBox="0 0 400 400" aria-hidden="true">
-          <circle cx="400" cy="0" r="350" fill="none" stroke="url(#curve-gradient)" strokeWidth="2" />
-          <defs>
-            <linearGradient id="curve-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#45AFC5" />
-              <stop offset="100%" stopColor="#DF5E99" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <svg className="absolute bottom-0 left-0 w-1/3 h-full opacity-15" viewBox="0 0 300 300" aria-hidden="true">
-          <ellipse cx="0" cy="300" rx="250" ry="200" fill="none" stroke="url(#curve-gradient-2)" strokeWidth="2" />
-          <defs>
-            <linearGradient id="curve-gradient-2" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#DF5E99" />
-              <stop offset="100%" stopColor="#45AFC5" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-
       <div className="w-[90vw] mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 md:gap-20 items-center">
           {/* Left Content - Headline & Paragraph */}
@@ -71,26 +49,27 @@ export default function PerformanceModel() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6 md:space-y-8"
+            className="space-y-6 md:space-y-8 max-w-3xl"
           >
-            <h2 className="font-bold text-slate-800 leading-tight">A Performance Model That Scales.</h2>
+            <h2 className="font-bold text-slate-800 leading-tight max-w-xl">A Performance Model That Scales.</h2>
 
-            <p className="text-body-base md:text-body-lg text-slate-600 leading-relaxed font-medium">
+            <p className="text-body-lg md:text-body-lg text-slate-600 leading-relaxed font-medium">
+                You can’t scale with fragmented performance strategies.
+            </p>
+            <p className="text-body-lg md:text-body-lg text-slate-600 leading-relaxed font-medium">
               Traditional marketing approaches fail to keep pace with today&apos;s rapidly evolving digital landscape.
               Our proven methodology combines speed, precision, and scalability to deliver consistent results across all
               your marketing channels.
-            </p>
-
-            <p className="text-body-sm text-slate-500 leading-relaxed">
-              We don&apos;t just run campaigns — we build growth engines that adapt and expand with your business,
-              ensuring sustained competitive advantage in an increasingly crowded marketplace.
+              Traditional marketing approaches fail to keep pace with today&apos;s rapidly evolving digital landscape.
+              Our proven methodology combines speed, precision, and scalability to deliver consistent results across all
+              your marketing channels.
             </p>
 
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 text-[#45AFC5] font-semibold text-body-base mt-4 focus:outline-none focus-visible:underline"
+              className="flex items-center gap-2 text-[#45AFC5] font-semibold text-body-lg mt-4 focus:outline-none focus-visible:underline"
             >
               Explore Our Methodology
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
@@ -103,68 +82,10 @@ export default function PerformanceModel() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+            className="relative flex flex-col gap-4 md:gap-6"
           >
-            {/* Top Row - Offset Left */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6 lg:-ml-12">
-              {features.slice(0, 2).map((feature, index) => (
-                <motion.article
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className={`relative rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden ${
-                    index % 2 === 0
-                      ? "bg-gradient-to-br from-[#45AFC5] to-blue-600"
-                      : "bg-gradient-to-br from-[#DF5E99] to-pink-600"
-                  }`}
-                  tabIndex={0}
-                  role="article"
-                  aria-label={feature.title}
-                >
-                  {/* Card Content */}
-                  <div className="relative z-10 flex flex-col justify-center items-center p-5">
-                    {/* SVG Icon Container - Using Next.js Image */}
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-5 bg-white/20 backdrop-blur-sm">
-                      <Image
-                        src={feature.icon}
-                        alt={`${feature.title} - ${feature.description}`}
-                        width={48}
-                        height={48}
-                        className="h-10 w-10 md:h-12 md:w-12"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-h4 font-bold text-white mb-2 md:mb-3 text-center">{feature.title}</h3>
-
-                    {/* Arrow Button */}
-                    <motion.a
-                      href="#contact"
-                      whileHover={{ x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-white/90 font-medium text-body-sm focus:outline-none focus-visible:underline"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </motion.a>
-                  </div>
-
-                  {/* Subtle Pattern Overlay */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-10 pointer-events-none" aria-hidden="true">
-                    <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-                      <circle cx="80" cy="20" r="40" fill="white" />
-                    </svg>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-
-            {/* Bottom Row - Normal Position */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {/* Bottom Row - Cards 3 and 4 (Offset to the left) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 md:mr-12 lg:mr-20">
               {features.slice(2, 4).map((feature, index) => (
                 <motion.article
                   key={index + 2}
@@ -173,49 +94,69 @@ export default function PerformanceModel() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`relative rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer overflow-hidden ${
-                    (index + 2) % 2 === 0
-                      ? "bg-gradient-to-br from-[#45AFC5] to-blue-600"
-                      : "bg-gradient-to-br from-[#DF5E99] to-pink-600"
-                  }`}
-                  tabIndex={0}
-                  role="article"
-                  aria-label={feature.title}
+                  className={`relative rounded-[2rem] p-8 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
+                    ? "bg-[#3CB4C7]" // Teal for Card 3
+                    : "bg-[#EB5896]" // Pink for Card 4
+                    }`}
                 >
                   {/* Card Content */}
-                  <div className="relative z-10 flex flex-col justify-center items-center p-5">
-                    {/* SVG Icon Container - Using Next.js Image */}
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-5 bg-white/20 backdrop-blur-sm">
+                  <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                    <div className="mb-6">
                       <Image
                         src={feature.icon}
-                        alt={`${feature.title} - ${feature.description}`}
-                        width={48}
-                        height={48}
-                        className="h-10 w-10 md:h-12 md:w-12"
-                        loading="lazy"
+                        alt={feature.title}
+                        width={50}
+                        height={50}
+                        className="brightness-0 invert" // Makes icons white like the image
                       />
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-h4 font-bold text-white mb-2 md:mb-3 text-center">{feature.title}</h3>
-
-                    {/* Arrow Button */}
-                    <motion.a
-                      href="#contact"
-                      whileHover={{ x: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 text-white/90 font-medium text-body-sm focus:outline-none focus-visible:underline"
-                    >
-                      <span>Learn More</span>
-                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </motion.a>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                      {feature.title}
+                    </h3>
+                    <div className="rounded-full border-2 border-white/50 p-1 group-hover:bg-white/20 transition-colors">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
                   </div>
+                </motion.article>
+              ))}
+            </div>
 
-                  {/* Subtle Pattern Overlay */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-10 pointer-events-none" aria-hidden="true">
-                    <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-                      <circle cx="80" cy="20" r="40" fill="white" />
-                    </svg>
+
+
+            {/*  */}
+
+            {/* Top Row - Cards 1 and 2 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 md:ml-12 lg:ml-20">
+              {features.slice(0, 2).map((feature, index) => (
+                <motion.article
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className={`relative rounded-[2rem] p-8 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
+                    ? "bg-[#EB5896]" // Pink for Card 1
+                    : "bg-[#3CB4C7]" // Teal for Card 2
+                    }`}
+                >
+
+                  <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                    <div className="mb-6">
+                      <Image
+                        src={feature.icon}
+                        alt={feature.title}
+                        width={50}
+                        height={50}
+                        className="brightness-0 invert"
+                      />
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                      {feature.title}
+                    </h3>
+                    <div className="rounded-full border-2 border-white/50 p-1 group-hover:bg-white/20 transition-colors">
+                      <ArrowRight className="h-5 w-5 text-white" />
+                    </div>
                   </div>
                 </motion.article>
               ))}
