@@ -327,75 +327,63 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              className="fixed top-24 left-3 right-3 sm:left-4 sm:right-4 max-w-sm mx-auto z-40 bg-[#222222] rounded-3xl p-6 shadow-2xl border border-white/10 lg:hidden"
+              className="fixed top-20 left-3 right-3 sm:left-4 sm:right-4 bottom-4 max-w-md mx-auto z-40 bg-[#222222] rounded-3xl shadow-2xl border border-white/10 lg:hidden overflow-hidden"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
             >
-              <nav className="flex flex-col space-y-2" role="navigation">
-                {["Who We Are", "Services", "Success Stories", "Our Story", "Insights"].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-white/90 hover:text-[#DF5E99] hover:bg-white/5 py-3 px-4 rounded-xl transition-all text-base font-medium flex items-center justify-between group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item}
-                    <ChevronRight
-                      className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#DF5E99]"
-                      aria-hidden="true"
-                    />
-                  </a>
-                ))}
+              <nav className="flex flex-col h-full overflow-y-auto p-4 sm:p-6" role="navigation">
+                {/* Main Navigation Links */}
+                <div className="space-y-1">
+                  {["Who We Are", "Services", "Success Stories", "Our Story", "Insights"].map((item) => (
+                    <a
+                      key={item}
+                      href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="text-white/90 hover:text-[#DF5E99] hover:bg-white/5 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl transition-all text-sm sm:text-base font-medium flex items-center justify-between group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                      <ChevronRight
+                        className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#DF5E99]"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  ))}
+                </div>
 
                 {/* Mobile Services Grid */}
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <p className="text-white/60 text-xs uppercase tracking-wider mb-3 px-2">Services</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {services.slice(0, 4).map((service) => (
+                <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-white/10">
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-2 sm:mb-3 px-2">Services</p>
+                  <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                    {services.map((service) => (
                       <a
                         key={service.label}
                         href="#services"
-                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
+                        className="flex items-center gap-1.5 sm:gap-2 p-1.5 sm:p-2 rounded-lg hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <div
-                          className={`w-8 h-8 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white flex-shrink-0`}
+                          className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white flex-shrink-0`}
                           aria-hidden="true"
                         >
-                          {IconMap[service.icon]}
+                          <span className="scale-75 sm:scale-100">{IconMap[service.icon]}</span>
                         </div>
-                        <span className="text-white/80 text-sm">{service.label}</span>
-                      </a>
-                    ))}
-                    {services.slice(4).map((service) => (
-                      <a
-                        key={service.label}
-                        href="#services"
-                        className="flex items-center gap-2 p-2 rounded-lg hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        <div
-                          className={`w-8 h-8 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white flex-shrink-0`}
-                          aria-hidden="true"
-                        >
-                          {IconMap[service.icon]}
-                        </div>
-                        <span className="text-white/80 text-sm">{service.label}</span>
+                        <span className="text-white/80 text-xs sm:text-sm">{service.label}</span>
                       </a>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4">
+                {/* CTA Button - Fixed at bottom */}
+                <div className="mt-auto pt-3 sm:pt-4">
                   <motion.a
                     href="#contact"
                     whileTap={{ scale: 0.98 }}
-                    className="gradient-bg-pink-blue text-white w-full py-4 rounded-2xl font-semibold shadow-lg flex justify-center items-center text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                    className="gradient-bg-pink-blue text-white w-full py-3 sm:py-4 rounded-2xl font-semibold shadow-lg flex justify-center items-center text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Let&apos;s Talk
-                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                   </motion.a>
                 </div>
               </nav>

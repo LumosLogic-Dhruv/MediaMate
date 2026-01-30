@@ -140,7 +140,7 @@ export default function Services() {
 
           {/* Pill-Shaped Navigation Tabs */}
           <div
-            className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 bg-white py-4 rounded-full shadow-inner w-auto max-w-6xl mx-auto"
+            className="flex flex-nowrap justify-start lg:justify-center gap-2 sm:gap-3 md:gap-4 mb-8 sm:mb-12 md:mb-16 bg-white py-3 sm:py-4 px-3 sm:px-4 rounded-[2rem] sm:rounded-full shadow-inner w-full max-w-6xl mx-auto overflow-x-auto overflow-y-hidden scrollbar-hide"
             role="tablist"
             aria-label="Service categories"
           >
@@ -156,13 +156,13 @@ export default function Services() {
                 aria-controls={`tabpanel-${tab.name.toLowerCase().replace(/\s+/g, "-")}`}
                 id={`tab-${tab.name.toLowerCase().replace(/\s+/g, "-")}`}
                 tabIndex={activeTab === tab.name ? 0 : -1}
-                className={`flex items-center space-x-2 px-4 py-4 md:px-6 md:py-4 rounded-full font-semibold text-body-sm md:text-btn transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ${
+                className={`flex-shrink-0 flex items-center space-x-1 sm:space-x-2 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full font-semibold text-xs sm:text-body-sm md:text-btn transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] text-white shadow-lg"
                     : " text-slate-800 hover:bg-slate-200"
                 }`}
               >
-                <tab.icon className="h-4 w-4 md:h-5 md:w-5" aria-hidden="true" />
+                <tab.icon className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" aria-hidden="true" />
                 <span className="whitespace-nowrap">{tab.name}</span>
               </motion.button>
             ))}
@@ -181,7 +181,6 @@ export default function Services() {
                 role="tabpanel"
                 id={`tabpanel-${activeTab.toLowerCase().replace(/\s+/g, "-")}`}
                 aria-labelledby={`tab-${activeTab.toLowerCase().replace(/\s+/g, "-")}`}
-                tabIndex={0}
               >
                 <h3 className="font-bold text-slate-800">{currentContent.title}</h3>
 
@@ -219,12 +218,14 @@ export default function Services() {
               className="relative order-1 lg:order-2"
               aria-hidden="true"
             >
-              <div className="w-auto h-[52vh] relative rounded-[2rem] overflow-hidden shadow-xl inner-shadow bg-white/50">
+              <div className="w-full h-[200px] sm:h-[280px] md:h-[350px] lg:h-[52vh] relative rounded-[1rem] sm:rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl bg-white/50">
                 <div className="absolute -inset-4 bg-gradient-to-r from-teal-400/20 to-pink-500/20 rounded-[2.5rem] blur-xl"></div>
-
-                <div className="relative  rounded-[2rem]">
-                  <img src={resources.heroImg1.src} alt={resources.heroImg1.alt} loading="lazy"/>
-                </div>
+                <img
+                  src={resources.heroImg1.src}
+                  alt={resources.heroImg1.alt}
+                  loading="lazy"
+                  className="w-full h-full object-cover rounded-[1rem] sm:rounded-[1.5rem] md:rounded-[2rem]"
+                />
               </div>
             </motion.div>
           </div>

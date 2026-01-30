@@ -176,40 +176,40 @@ export default function SuccessStories() {
       >
         <div
           ref={sliderRef}
-          className="flex gap-8 flex-nowrap"
+          className="flex gap-3 sm:gap-5 md:gap-8 flex-nowrap"
           style={{ width: "max-content", willChange: "transform" }}
         >
           {[...stories, ...stories, ...stories].map((story, index) => (
             <article
               key={index}
-              className="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 text-center shadow-lg min-w-[320px] md:min-w-[400px] min-h-[580px] md:min-h-[600px] pointer-events-none"
+              className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-8 border border-gray-200 text-center shadow-lg min-w-[220px] sm:min-w-[280px] md:min-w-[400px] w-[220px] sm:w-[280px] md:w-[400px] pointer-events-none flex-shrink-0"
               style={{ backfaceVisibility: "hidden" }}
               aria-label={`${story.company} success story`}
             >
-              <div className="w-full h-64 rounded-xl border border-gray-500 p-10 flex justify-center items-center mb-5">
-                <div className="relative w-full h-full ">
+              <div className="w-full h-32 sm:h-48 md:h-64 rounded-lg sm:rounded-xl border border-gray-500 p-4 sm:p-6 md:p-10 flex justify-center items-center mb-3 sm:mb-4 md:mb-5">
+                <div className="relative w-full h-full">
                   <Image
                     src={story.logo}
                     alt={`${story.company} logo`}
                     fill
                     className="object-contain"
                     loading={index < 5 ? "eager" : "lazy"}
-                    sizes="(max-width: 768px) 280px, 360px"
+                    sizes="(max-width: 640px) 180px, (max-width: 768px) 240px, 360px"
                   />
                 </div>
               </div>
 
-              <div className="text-h2 font-bold text-[#DF5E99] mb-1">{story.metric1}</div>
-              <div className="text-body-lg text-black mb-4 font-medium">{story.title1}</div>
-              <div className="text-h2 font-bold text-[#45AFC5] mb-1">{story.metric2}</div>
-              <div className="text-body-lg text-black mb-6 font-medium">{story.title2}</div>
+              <div className="text-xl sm:text-2xl md:text-h2 font-bold text-[#DF5E99] mb-0.5 sm:mb-1">{story.metric1}</div>
+              <div className="text-xs sm:text-sm md:text-body-lg text-black mb-2 sm:mb-3 md:mb-4 font-medium">{story.title1}</div>
+              <div className="text-xl sm:text-2xl md:text-h2 font-bold text-[#45AFC5] mb-0.5 sm:mb-1">{story.metric2}</div>
+              <div className="text-xs sm:text-sm md:text-body-lg text-black mb-3 sm:mb-4 md:mb-6 font-medium">{story.title2}</div>
 
               <a
                 href="#contact"
-                className="inline-flex items-center border border-[#DF5E99] px-5 py-2 rounded-full justify-center space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
+                className="inline-flex items-center border border-[#DF5E99] px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full justify-center space-x-1 sm:space-x-2 text-[#DF5E99] font-medium pointer-events-auto cursor-pointer hover:bg-pink-50 transition-colors text-xs sm:text-body-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99]"
               >
                 <span>Learn More</span>
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
               </a>
             </article>
           ))}

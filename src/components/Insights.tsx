@@ -173,12 +173,12 @@ export default function Insights() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full py-16 md:py-20 px-4 bg-gradient-to-r from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none "
+      className="relative z-0 w-full py-16 md:py-20 px-4 bg-gradient-to-r from-[#DF5E99]/20 via-[#9B5DE5]/10 to-[#45AFC5]/20 overflow-hidden select-none"
       id="insights"
       aria-label="Latest insights and articles"
     >
-      <div className="w-[90vw] mx-auto">
-        <div className="text-center mb-12 md:mb-16">
+      <div className="relative z-10 w-[90vw] mx-auto">
+        <div className="relative z-10 text-center mb-12 md:mb-16">
           <h2 className="font-bold text-black mb-4">Insights</h2>
         </div>
 
@@ -188,29 +188,29 @@ export default function Insights() {
           role="region"
           aria-label="Insights carousel - drag to scroll"
         >
-          <div ref={sliderRef} className="flex gap-8" style={{ width: "max-content" }}>
+          <div ref={sliderRef} className="flex gap-3 sm:gap-5 md:gap-8" style={{ width: "max-content", willChange: "transform" }}>
             {/* Duplicating for seamless loop */}
             {[...insights, ...insights, ...insights].map((insight, index) => (
               <article
                 key={index}
-                className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[350px] md:min-w-[400px] p-5 pointer-events-none min-h-[530px] md:min-h-[550px]"
-                style={{ width: "25rem" }}
+                className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[200px] sm:min-w-[260px] md:min-w-[400px] w-[200px] sm:w-[260px] md:w-[400px] p-3 sm:p-4 md:p-5 pointer-events-none flex-shrink-0"
+                style={{ backfaceVisibility: "hidden" }}
                 aria-label={insight.title}
               >
-                <div className="relative overflow-hidden h-72 rounded-2xl">
+                <div className="relative overflow-hidden h-32 sm:h-44 md:h-64 rounded-lg sm:rounded-xl md:rounded-2xl">
                   <Image
                     src={insight.image}
                     alt={`${insight.category} article illustration`}
                     fill
                     className="object-cover"
                     loading="lazy"
-                    sizes="(max-width: 768px) 350px, 400px"
+                    sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, 400px"
                   />
                 </div>
 
-                <div className="p-4 md:p-6 pointer-events-auto">
-                  <span className="text-[#45AFC5] text-body-lg font-bold">{insight.category}</span>
-                  <h3 className="text-h4 font-bold text-gray-800 my-4 line-clamp-2 leading-tight">{insight.title}</h3>
+                <div className="p-2 sm:p-4 md:p-6 pointer-events-auto">
+                  <span className="text-[#45AFC5] text-xs sm:text-sm md:text-body-lg font-bold">{insight.category}</span>
+                  <h3 className="text-sm sm:text-base md:text-h4 font-bold text-gray-800 my-2 sm:my-3 md:my-4 line-clamp-2 leading-tight">{insight.title}</h3>
                   <button
                     type="button"
                     onClick={() => {
@@ -219,16 +219,15 @@ export default function Insights() {
                     }}
                     className="group relative p-[1px] inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] transition-all hover:shadow-lg active:scale-95"
                   >
-                    {/* The Inner Container (Matches your original button styling) */}
-                    <div className="flex items-center space-x-2 px-5 py-2 rounded-full bg-white group-hover:bg-pink-50 transition-all">
-                      <span className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] bg-clip-text text-transparent font-medium text-body-sm">
+                    <div className="flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-white group-hover:bg-pink-50 transition-all">
+                      <span className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] bg-clip-text text-transparent font-medium text-xs sm:text-body-sm">
                         Read More
                       </span>
-                      <ArrowRight 
-  className="h-4 w-4" 
-  style={{ stroke: "#EB5896", filter: "drop-shadow(2px 0px 0px #3CB4C7)" }} 
-  aria-hidden="true" 
-/>
+                      <ArrowRight
+                        className="h-3 w-3 sm:h-4 sm:w-4"
+                        style={{ stroke: "#EB5896", filter: "drop-shadow(2px 0px 0px #3CB4C7)" }}
+                        aria-hidden="true"
+                      />
                     </div>
                   </button>
                 </div>

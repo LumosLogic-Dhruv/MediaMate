@@ -20,7 +20,7 @@ export default function Partners() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative z-20 w-full py-16 md:py-16 mt-2 px-4 bg-gradient-to-br from-[#DF5E99]/35 via-[#9B5DE5]/35 to-[#45AFC5]/35"
+      className="relative z-20 w-full py-16 md:py-16 mt-2 px-4 bg-gradient-to-r from-[#DF5E99]/80 to-[#45AFC5]/80"
       aria-label="Our Partner Networks"
     >
       <div className="w-[90vw] mx-auto">

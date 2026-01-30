@@ -73,15 +73,36 @@ export default function Hero() {
 
             {/* --- RIGHT CONTENT: OVERLAPPING IMAGES --- */}
             <div
-              className="relative h-[300px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] max-w-5xl flex items-center justify-center order-1 lg:order-2"
+              className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] w-full max-w-5xl flex items-center justify-center order-1 lg:order-2"
               aria-hidden="true"
             >
+              {/* Mobile: Show only one centered image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className="lg:hidden absolute inset-0 flex items-center justify-center z-10 mt-5"
+              >
+                <div className="w-[85%] h-[85%] overflow-hidden border-[6px] border-white/50 shadow-2xl">
+                  <Image
+                    src={resources.heroImg1.src}
+                    alt="A high-energy candid photo of two people"
+                    fill
+                    priority
+                    quality={75}
+                    sizes="85vw"
+                    className="object-cover rounded-3xl"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Desktop: All overlapping images */}
               {/* Image 1 - Bottom-Left, Vertical */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
-                className="absolute bottom-0 left-0 z-10 w-[40%] h-[50vh] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden border-[4px] sm:border-[6px] md:border-[8px] lg:border-[12px] border-white/50 shadow-2xl"
+                className="hidden lg:block absolute bottom-0 left-0 z-10 w-[40%] h-[50vh] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden border-[4px] sm:border-[6px] md:border-[8px] lg:border-[12px] border-white/50 shadow-2xl"
               >
                 <Image
                   src={resources.heroImg1.src}
@@ -99,7 +120,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 w-[40%] h-[40%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
+                className="hidden lg:block absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 w-[40%] h-[40%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
               >
                 <Image
                   src={resources.heroImg2.src}
@@ -117,7 +138,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="absolute top-0 right-0 z-10 w-[40%] h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[50px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-xl"
+                className="hidden lg:block absolute top-0 right-0 z-10 w-[40%] h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[50px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-xl"
               >
                 <Image
                   src={resources.heroImg3.src}
@@ -140,7 +161,7 @@ export default function Hero() {
                 //   y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                 //   rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                 // }}
-                className="absolute bottom-[50vh] left-[40%] transform -translate-x-1/2 translate-y-1/2 z-40 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-30 lg:h-30 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full flex items-center justify-center border-[2px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
+                className="hidden lg:flex absolute bottom-[50vh] left-[40%] transform -translate-x-1/2 translate-y-1/2 z-40 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-30 lg:h-30 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full items-center justify-center border-[2px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
               >
                 <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center">
                   <Rocket
