@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Rocket } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { resources } from "@/data/resources";
 
@@ -20,54 +20,49 @@ export default function Hero() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className=" max-w-3xl space-y-3 md:space-y-4 lg:space-y-5 text-center lg:text-left order-2 lg:order-1"
+              className="max-w-3xl space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1"
             >
-              <h1 className="font-bold leading-[1.1] text-gray-900">
+              {/* --- Title Section --- */}
+              <h1 className="font-bold leading-[1.1] text-gray-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                 <span className="block">We scale ecommerce</span>
-                <span className="block">brand with precision</span>
-                <span className="text-[#DF5E99]">performance marketing </span>
-                <span className="block">& <span className="text-[#45AFC5]">search</span>.</span>
+                <span className="block">brands with precision</span>
+                <span className="text-[#DF5E99] block">performance marketing</span>
+                <span className="flex items-center justify-center lg:justify-start gap-2 md:gap-3">
+                  & <span className="text-[#45AFC5]">search</span>.
+                </span>
               </h1>
 
-              <p className="text-body-lg md:text-body-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              {/* --- Subtitle --- */}
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-snug max-w-2xl mx-auto lg:mx-0">
                 Drive growth with data-driven strategies that deliver measurable results for your ecommerce business.
               </p>
 
-              {/* IMPROVED RESPONSIVE BUTTON GROUP */}
+              {/* --- Search Bar Container --- */}
               <form
-                className="gradient-bg-pink-blue flex flex-col sm:flex-row gap-3 sm:gap-2 max-w-xl lg:max-w-3xl mx-auto lg:mx-0 rounded-2xl sm:rounded-full p-2 sm:p-2 md:p-3"
+                className="relative flex items-center p-[4px] md:p-[6px] rounded-2xl sm:rounded-full max-w-2xl lg:mx-0 mx-auto"
+                style={{
+                  background: 'linear-gradient(to right, #DF5E99, #45AFC5)',
+                }}
                 onSubmit={(e) => e.preventDefault()}
-                aria-label="Email subscription form"
               >
-                <div className="flex-1 relative">
-                  <label htmlFor="hero-email" className="sr-only">
-                    Enter your email address
-                  </label>
-                  <Mail
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
-                    aria-hidden="true"
-                  />
+                <div className="flex flex-col sm:flex-row w-full items-center bg-transparent rounded-[inherit] overflow-hidden gap-2 sm:gap-0">
+                  {/* Input Field */}
                   <input
-                    id="hero-email"
                     type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    autoComplete="email"
+                    placeholder="Enter Email"
+                    className="w-full sm:flex-1 bg-white ml-0 sm:ml-1 my-0 sm:my-1 h-12 md:h-14 pl-6 rounded-xl sm:rounded-full outline-none text-gray-700 placeholder:text-gray-400 text-base md:text-lg"
                     required
-                    className="w-full pl-11 pr-4 py-3 md:py-4 rounded-xl sm:rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#DF5E99]/50 focus:border-[#DF5E99] bg-white text-body-md md:text-body-base transition-shadow"
                   />
+
+                  {/* Submit Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#45AFC5] sm:bg-transparent text-white px-6 md:px-8 h-12 md:h-14 font-semibold text-lg md:text-xl border border-white/50 sm:border-white rounded-xl sm:rounded-full sm:ml-2 mr-0 sm:mr-3 transition-colors"
+                  >
+                    Submit <ArrowRight className="h-auto w-auto" />
+                  </motion.button>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="bg-[#3CB4C7] border border-white text-white px-6 md:px-10 py-3 md:py-4 rounded-xl sm:rounded-full font-medium shadow-md hover:shadow-xl transition-all flex items-center justify-center text-body-md md:text-btn whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#DF5E99]"
-                >
-                  <span className="flex items-center">
-                    Submit
-                    <ArrowRight className="ml-2 h-4 w-5 md:h-5 md:w-6" aria-hidden="true" />
-                  </span>
-                </motion.button>
               </form>
             </motion.div>
 
@@ -96,13 +91,13 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Desktop: All overlapping images */}
+            {/* Desktop: All overlapping images */}
               {/* Image 1 - Bottom-Left, Vertical */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
-                className="hidden lg:block absolute bottom-0 left-0 z-10 w-[40%] h-[50vh] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[60px] overflow-hidden border-[4px] sm:border-[6px] md:border-[8px] lg:border-[12px] border-white/50 shadow-2xl"
+                className="hidden lg:block absolute bottom-0 left-0 z-10 w-[40%] h-[50vh] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[40px] overflow-hidden shadow-2xl"
               >
                 <Image
                   src={resources.heroImg1.src}
@@ -112,6 +107,7 @@ export default function Hero() {
                   quality={75}
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 45vw, (max-width: 1024px) 40vw, 35vw"
                   className="object-cover"
+                  style={{ borderRadius: 'inherit' }}
                 />
               </motion.div>
 
@@ -120,7 +116,7 @@ export default function Hero() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="hidden lg:block absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 w-[40%] h-[40%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
+                className="hidden lg:block absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 w-[40%] h-[45%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden shadow-2xl"
               >
                 <Image
                   src={resources.heroImg2.src}
@@ -129,7 +125,8 @@ export default function Hero() {
                   priority
                   quality={75}
                   sizes="(max-width: 640px) 55vw, (max-width: 768px) 50vw, (max-width: 1024px) 45vw, 40vw"
-                  className="object-cover"
+                  className="object-contain"
+                  style={{ borderRadius: 'inherit' }}
                 />
               </motion.div>
 
@@ -138,7 +135,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="hidden lg:block absolute top-0 right-0 z-10 w-[40%] h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[50px] overflow-hidden border-[3px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-xl"
+                className="hidden lg:block absolute top-0 right-0 z-10 w-[40%] h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[45px] overflow-hidden shadow-xl"
               >
                 <Image
                   src={resources.heroImg3.src}
@@ -148,6 +145,7 @@ export default function Hero() {
                   quality={75}
                   sizes="(max-width: 640px) 45vw, (max-width: 768px) 40vw, (max-width: 1024px) 35vw, 30vw"
                   className="object-cover"
+                  style={{ borderRadius: 'inherit' }}
                 />
               </motion.div>
 
@@ -155,18 +153,14 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, y: 0 }}
                 animate={{ opacity: 1, scale: 1, y: [0, -15, 0], rotate: [0, 5, 0] }}
-                // transition={{
-                //   opacity: { duration: 0.8, ease: "easeOut" },
-                //   scale: { duration: 0.8, ease: "easeOut" },
-                //   y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                //   rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-                // }}
                 className="hidden lg:flex absolute bottom-[50vh] left-[40%] transform -translate-x-1/2 translate-y-1/2 z-40 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-30 lg:h-30 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full items-center justify-center border-[2px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
               >
                 <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center">
-                  <Rocket
-                    className="text-white h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 "
-                    aria-hidden="true"
+                  <Image
+                    src={resources.rocket.src}
+                    alt={resources.rocket.alt}
+                    fill
+                    className="object-contain p-7"
                   />
                 </div>
               </motion.div>

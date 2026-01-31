@@ -21,41 +21,41 @@ export default function SuccessStories() {
       logo: resources.googleLogo.src,
       company: "TechStart",
       metric1: "85%",
-      title1: "Increase App Installation",
+      title1: "Increase in App Installs",
       metric2: "50%",
-      title2: "Increase in Daily Active User",
+      title2: "Reduction in CPA",
     },
     {
       logo: resources.metaLogo.src,
       company: "AppFlow",
       metric1: "127%",
-      title1: "Increase App Installation",
+      title1: "ROAS Improvement",
       metric2: "73%",
-      title2: "Increase in Daily Active User",
+      title2: "Growth in Revenue",
     },
     {
       logo: resources.shopifyLogo.src,
       company: "EcomPlus",
       metric1: "200%",
-      title1: "Increase App Installation",
+      title1: "Increase in Orders",
       metric2: "95%",
-      title2: "Increase in Daily Active User",
+      title2: "Higher Customer LTV",
     },
     {
       logo: resources.microsoftLogo.src,
       company: "ScaleUp",
       metric1: "156%",
-      title1: "Increase App Installation",
+      title1: "Boost in Lead Volume",
       metric2: "82%",
-      title2: "Increase in Daily Active User",
+      title2: "Lower Cost Per Lead",
     },
     {
       logo: resources.nvidiaLogo.src,
       company: "GrowthCo",
       metric1: "178%",
-      title1: "Increase App Installation",
+      title1: "Traffic Growth",
       metric2: "64%",
-      title2: "Increase in Daily Active User",
+      title2: "Improved Conversion Rate",
     },
   ];
 
@@ -204,25 +204,25 @@ export default function SuccessStories() {
               <div className="text-xl sm:text-2xl md:text-h2 font-bold text-[#45AFC5] mb-0.5 sm:mb-1">{story.metric2}</div>
               <div className="text-xs sm:text-sm md:text-body-lg text-black mb-3 sm:mb-4 md:mb-6 font-medium">{story.title2}</div>
 
-             <button
-                    type="button"
-                    onClick={() => {
-                      const element = document.getElementById('insights');
-                      element?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="group relative p-[1px] inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] transition-all hover:shadow-lg active:scale-95"
-                  >
-                    <div className="flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-white group-hover:bg-pink-50 transition-all">
-                      <span className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] bg-clip-text text-transparent font-medium text-xs sm:text-body-sm">
-                        Learn More
-                      </span>
-                      <ArrowRight
-                        className="h-3 w-3 sm:h-4 sm:w-4"
-                        style={{ stroke: "#EB5896", filter: "drop-shadow(2px 0px 0px #3CB4C7)" }}
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const element = document.getElementById('insights');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group relative p-[1px] inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] transition-all hover:shadow-lg active:scale-95"
+              >
+                <div className="flex items-center space-x-1 sm:space-x-2 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-white group-hover:bg-pink-50 transition-all">
+                  <span className="bg-gradient-to-r from-[#EB5896] to-[#3CB4C7] bg-clip-text text-transparent font-medium text-xs sm:text-body-lg">
+                    Learn More
+                  </span>
+                  <ArrowRight
+                    className="h-3 w-3 sm:h-4 sm:w-4"
+                    style={{ stroke: "#EB5896", filter: "drop-shadow(2px 0px 0px #3CB4C7)" }}
+                    aria-hidden="true"
+                  />
+                </div>
+              </button>
             </article>
           ))}
         </div>

@@ -9,25 +9,25 @@ export default function PerformanceModel() {
     {
       icon: "/icons/speedometer.svg",
       title: "Speed to Insight",
-      description: "Get actionable insights faster with our advanced analytics",
-      color: "from-[#45AFC5] to-blue-500",
-    },
-    {
-      icon: "/icons/pen.svg",
-      title: "Speed to Create",
-      description: "Rapid creative development that captures attention",
-      color: "from-[#DF5E99] to-pink-500",
-    },
-    {
-      icon: "/icons/growth.svg",
-      title: "Speed to Optimize",
-      description: "Continuous optimization for maximum performance",
+      description: "Real-time analytics dashboards that reveal actionable growth opportunities",
       color: "from-[#45AFC5] to-blue-500",
     },
     {
       icon: "/icons/rocket.svg",
       title: "Speed to Launch",
-      description: "Quick deployment to stay ahead of competition",
+      description: "Go live in days, not weeks, with our rapid deployment methodology",
+      color: "from-[#DF5E99] to-pink-500",
+    },
+    {
+      icon: "/icons/growth.svg",
+      title: "Speed to Optimize",
+      description: "AI-powered campaign optimization that maximizes your ROAS continuously",
+      color: "from-[#45AFC5] to-blue-500",
+    },
+    {
+      icon: "/icons/pen.svg",
+      title: "Speed to Create",
+      description: "High-converting ad creatives designed and deployed in record time",
       color: "from-[#DF5E99] to-pink-500",
     },
   ];
@@ -57,12 +57,7 @@ export default function PerformanceModel() {
                 You can’t scale with fragmented performance strategies.
             </p>
             <p className="text-body-lg md:text-body-lg text-slate-600 leading-relaxed font-medium">
-              Traditional marketing approaches fail to keep pace with today&apos;s rapidly evolving digital landscape.
-              Our proven methodology combines speed, precision, and scalability to deliver consistent results across all
-              your marketing channels.
-              Traditional marketing approaches fail to keep pace with today&apos;s rapidly evolving digital landscape.
-              Our proven methodology combines speed, precision, and scalability to deliver consistent results across all
-              your marketing channels.
+              When your performance tactics aren't connected, your growth stalls. We fix that. Our Growth and Performance Model combines proprietary technology (OneSource360TM, SmartSpot360TM, Captivasr360TM) with strategic, cross- channel insights and performance-focused creative, optimizing your spend, expending your reach, and boosting ROI quickly.
             </p>
 
             <motion.a

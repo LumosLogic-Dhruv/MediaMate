@@ -161,26 +161,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "MediaMate | Performance Marketing Agency to Increase App Installation",
-    template: "%s | MediaMate - Increase App Installation & Daily Active Users"
+    default: "MediaMate | Ecommerce Performance Marketing Agency",
+    template: "%s | MediaMate Performance Marketing"
   },
-  description: "Learn how to increase app installation and daily active users with MediaMate. Expert performance marketing strategies to grow your ecommerce business with proven results.",
+  description: "Scale your ecommerce brand with precision performance marketing. Expert strategies in paid search, SEO, and conversion optimization to drive measurable growth.",
   keywords: [
-    "increase app installation",
-    "daily active users",
-    "performance marketing agency",
-    "ecommerce marketing",
+    "ecommerce performance marketing",
+    "digital marketing agency",
     "paid search services",
     "SEO services",
     "conversion rate optimization",
-    "digital marketing agency",
+    "ecommerce marketing",
     "ecommerce growth",
     "paid social advertising",
-    "learn marketing",
-    "app installation strategy",
-    "user acquisition",
     "Google Ads agency",
-    "PPC management"
+    "PPC management",
+    "ecommerce SEO",
+    "social media marketing",
+    "content marketing agency",
+    "CRO services",
+    "programmatic advertising"
   ],
   authors: [{ name: "MediaMate", url: "https://mediamate.com" }],
   creator: "MediaMate",

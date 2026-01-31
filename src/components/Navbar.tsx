@@ -14,57 +14,79 @@ interface ServiceItem {
 }
 
 const services: ServiceItem[] = [
-  { label: "Paid Search", icon: "search", color: "#DF5E99", gradient: "from-pink-400 to-pink-600" },
-  { label: "Paid Social", icon: "users", color: "#45AFC5", gradient: "from-blue-400 to-blue-600" },
-  { label: "SEO", icon: "trending", color: "#22c55e", gradient: "from-green-400 to-green-600" },
-  { label: "DSP", icon: "signal", color: "#f97316", gradient: "from-orange-400 to-orange-600" },
-  { label: "Creative", icon: "sparkle", color: "#a855f7", gradient: "from-purple-400 to-purple-600" },
-  { label: "Content", icon: "document", color: "#06b6d4", gradient: "from-cyan-400 to-cyan-600" },
-  { label: "CRO", icon: "chart", color: "#ec4899", gradient: "from-rose-400 to-rose-600" },
+  { label: "Paid Search", icon: "paidSearch", color: "#DF5E99", gradient: "from-pink-400 to-pink-600" },
+  { label: "Paid Social", icon: "paidSocial", color: "#45AFC5", gradient: "from-blue-400 to-blue-600" },
+  { label: "SEO", icon: "seo", color: "#22c55e", gradient: "from-green-400 to-green-600" },
+  { label: "DSP", icon: "dsp", color: "#f97316", gradient: "from-orange-400 to-orange-600" },
+  { label: "Creative", icon: "creative", color: "#a855f7", gradient: "from-purple-400 to-purple-600" },
+  { label: "Content Marketing", icon: "contentMarketing", color: "#06b6d4", gradient: "from-cyan-400 to-cyan-600" },
+  { label: "CRO", icon: "cro", color: "#ec4899", gradient: "from-rose-400 to-rose-600" },
 ];
 
 // Icon components mapping with proper accessibility
 const IconMap: Record<string, React.ReactNode> = {
-  search: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <circle cx="11" cy="11" r="8" />
-      <path d="M21 21l-4.35-4.35" />
-    </svg>
+  paidSearch: (
+    <Image
+      src={resources.paidSearchIcon.src}
+      alt="Paid Search"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  users: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
+  paidSocial: (
+    <Image
+      src={resources.paidSocialIcon.src}
+      alt="Paid Social"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  trending: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M23 6l-9.5 9.5-5-5L1 18" />
-      <path d="M17 6h6v6" />
-    </svg>
+  seo: (
+    <Image
+      src={resources.seoIcon.src}
+      alt="SEO"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  signal: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M2 20h.01M7 20v-4m5 4v-8m5 8v-12m5 12v-16" />
-    </svg>
+  dsp: (
+    <Image
+      src={resources.dspIcon.src}
+      alt="DSP"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  sparkle: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
-      <circle cx="12" cy="12" r="4" />
-    </svg>
+  creative: (
+    <Image
+      src={resources.creativeIcon.src}
+      alt="Creative"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  document: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
-    </svg>
+  contentMarketing: (
+    <Image
+      src={resources.contentMarketingIcon.src}
+      alt="Content Marketing"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
-  chart: (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <path d="M18 20V10M12 20V4M6 20v-6" />
-    </svg>
+  cro: (
+    <Image
+      src={resources.croIcon.src}
+      alt="CRO"
+      width={24}
+      height={24}
+      className="w-5 h-5"
+    />
   ),
 };
 
@@ -154,56 +176,60 @@ export default function Navbar() {
                 >
                   Services{" "}
                   <ChevronDown
-                    className={`ml-1 h-5 w-5 transition-transform ${
-                      activeDropdown === "services" ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 h-5 w-5 transition-transform ${activeDropdown === "services" ? "rotate-180" : ""
+                      }`}
                     aria-hidden="true"
                   />
                 </button>
-
                 {/* Mega Dropdown */}
                 <AnimatePresence>
                   {activeDropdown === "services" && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute top-full mt-8 left-1/2 transform -translate-x-1/2"
+                      // Ensures the entire dropdown is centered under the trigger
+                      className="absolute top-full mt-6 left-1/2 transform -translate-x-1/2 z-50"
                       role="menu"
                       aria-label="Services menu"
                     >
-                      {/* Center Pointer Arrow */}
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2" aria-hidden="true">
-                        <div className="w-4 h-4 bg-white/90 backdrop-blur-xl rotate-45 border-l border-t border-[#DF5E99]/30" />
+                      {/* Center Pointer Notch */}
+                      <div className="absolute -top-[9px] left-1/2 transform -translate-x-1/2 z-10" aria-hidden="true">
+                        <div className="w-4 h-4 bg-[#FDEFF4] rotate-45 border-l border-t border-[#DF5E99]/40" />
                       </div>
 
-                      {/* Main Dropdown Container - Pill Shaped */}
-                      <div className="bg-gradient-to-tr from-pink-200 via-purple-100 to-cyan-200 backdrop-blur-xl rounded-3xl shadow-2xl border border-[#DF5E99]/20 p-4 w-[1200px]">
-                        {/* Horizontal Layout Grid */}
-                        <div className="flex justify-evenly items-center gap-2">
+                      {/* Main Dropdown Container */}
+                      <div className="bg-gradient-to-r from-[#FDEFF4] via-[#F3F1FF] to-[#E6F8FB] rounded-[20px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-[#DF5E99]/30 p-6 w-auto min-w-[1000px] max-w-[95vw]">
+
+                        {/* Horizontal Layout - justify-center and items-center for perfect alignment */}
+                        <div className="flex justify-center items-center gap-8 px-2">
                           {services.map((service, index) => (
                             <motion.a
                               key={service.label}
                               href={`#services`}
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: index * 0.05 }}
-                              className="group flex justify-between items-center text-center p-3 rounded-2xl hover:bg-gradient-to-br hover:from-[#DF5E99]/10 hover:to-[#45AFC5]/10 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:rounded-2xl"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: index * 0.03 }}
+                              // flex-col and items-center to stack the BIG icon over the text
+                              className="group flex items-center justify-center gap-3  px-5 rounded-2xl hover:bg-white/50 transition-all duration-300 outline-none focus:outline-none"
                               role="menuitem"
                             >
-                              {/* Icon Container with Glow Effect */}
+                              {/* BIG Icon Container - Increased from w-10 to w-16 */}
                               <div
-                                className={`w-12 h-12 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-2 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}
-                                style={{
-                                  boxShadow: `0 4px 15px ${service.color}40`,
-                                }}
+                                className="w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                                 aria-hidden="true"
                               >
-                                {IconMap[service.icon]}
+                                <div className="w-full h-full relative flex items-center justify-center">
+                                  {/* This scales the actual SVG/Image inside the IconMap */}
+                                  <div className="transform scale-[1.8]">
+                                    {IconMap[service.icon]}
+                                  </div>
+                                </div>
                               </div>
-                              {/* Label */}
-                              <span className="ml-2 text-xs font-bold text-gray-700 group-hover:text-[#DF5E99] transition-colors duration-200 leading-tight">
+
+                              {/* Label - Bold and Centered */}
+                              <span className="text-[14px] font-extrabold text-[#1a1a1a] tracking-tight whitespace-nowrap text-center">
                                 {service.label}
                               </span>
                             </motion.a>
@@ -212,8 +238,7 @@ export default function Navbar() {
                       </div>
                     </motion.div>
                   )}
-                </AnimatePresence>
-              </div>
+                </AnimatePresence>              </div>
 
               <a
                 href="#success-stories"
@@ -241,9 +266,8 @@ export default function Navbar() {
                 >
                   Insights{" "}
                   <ChevronDown
-                    className={`ml-1 h-5 w-5 transition-transform ${
-                      activeDropdown === "insights" ? "rotate-180" : ""
-                    }`}
+                    className={`ml-1 h-5 w-5 transition-transform ${activeDropdown === "insights" ? "rotate-180" : ""
+                      }`}
                     aria-hidden="true"
                   />
                 </button>
@@ -363,7 +387,7 @@ export default function Navbar() {
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <div
-                          className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white flex-shrink-0`}
+                          className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full  flex items-center justify-center text-white flex-shrink-0`}
                           aria-hidden="true"
                         >
                           <span className="scale-75 sm:scale-100">{IconMap[service.icon]}</span>

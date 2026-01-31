@@ -100,7 +100,7 @@ export default function Footer() {
       role="contentinfo"
       id="contact"
     >
-      <div className="w-full px-4 py-16 md:py-20">
+      <div className="w-full px-4 py-10 md:py-10">
         <div className="w-[90vw] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-20">
             {/* Left Section - Logo, Headline, Email */}
@@ -254,7 +254,7 @@ export default function Footer() {
           </div>
 
           {/* Divider Line */}
-          <div className="mt-20 md:mt-20 pt-8 border-t border-gray-800">
+          <div className="mt-16 md:mt-16 pt-6 border-t border-gray-800">
             {/* Centered Copyright */}
             <div className="text-center">
               <p className="text-gray-400 text-body-base">
