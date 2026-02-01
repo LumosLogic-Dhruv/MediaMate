@@ -182,7 +182,7 @@ export default function SuccessStories() {
           {[...stories, ...stories, ...stories].map((story, index) => (
             <article
               key={index}
-              className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-8 border border-gray-200 text-center shadow-lg min-w-[220px] sm:min-w-[280px] md:min-w-[400px] w-[220px] sm:w-[280px] md:w-[400px] pointer-events-none flex-shrink-0"
+              className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5 md:p-8 border border-gray-200 text-center shadow-lg min-w-[240px] sm:min-w-[300px] md:min-w-[400px] w-[240px] sm:w-[300px] md:w-[400px] pointer-events-none flex-shrink-0"
               style={{ backfaceVisibility: "hidden" }}
               aria-label={`${story.company} success story`}
             >

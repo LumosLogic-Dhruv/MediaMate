@@ -193,7 +193,7 @@ export default function Insights() {
             {[...insights, ...insights, ...insights].map((insight, index) => (
               <article
                 key={index}
-                className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[200px] sm:min-w-[260px] md:min-w-[400px] w-[200px] sm:w-[260px] md:w-[400px] p-3 sm:p-4 md:p-5 pointer-events-none flex-shrink-0"
+                className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-lg min-w-[220px] sm:min-w-[280px] md:min-w-[400px] w-[220px] sm:w-[280px] md:w-[400px] p-3 sm:p-4 md:p-5 pointer-events-none flex-shrink-0"
                 style={{ backfaceVisibility: "hidden" }}
                 aria-label={insight.title}
               >

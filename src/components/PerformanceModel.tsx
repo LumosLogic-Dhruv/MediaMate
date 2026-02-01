@@ -89,7 +89,7 @@ export default function PerformanceModel() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`relative rounded-[2rem] p-8 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
+                  className={`relative rounded-[2rem] p-6 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
                     ? "bg-[#3CB4C7]" // Teal for Card 3
                     : "bg-[#EB5896]" // Pink for Card 4
                     }`}
@@ -130,7 +130,7 @@ export default function PerformanceModel() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className={`relative rounded-[2rem] p-8 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
+                  className={`relative rounded-[2rem] p-6 md:p-10 shadow-lg transition-all duration-300 group cursor-pointer overflow-hidden ${index === 0
                     ? "bg-[#EB5896]" // Pink for Card 1
                     : "bg-[#3CB4C7]" // Teal for Card 2
                     }`}

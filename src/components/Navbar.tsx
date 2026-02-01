@@ -155,7 +155,7 @@ export default function Navbar() {
 
           {/* Navigation Links - Center with Rounded Black BG */}
           <div className="hidden lg:flex items-center h-[9vh] max-w-7xl px-5 py-2 rounded-full">
-            <div className="bg-[#222222] h-full flex justify-evenly rounded-full w-[40vw] px-5 xl:px-6 py-4 items-center space-x-3 xl:space-x-6">
+            <div className="bg-[#222222] h-full flex justify-evenly rounded-full min-w-fit max-w-[50vw] xl:max-w-[40vw] px-4 xl:px-6 py-4 items-center space-x-2 xl:space-x-6">
               <a
                 href="#about"
                 className="text-white hover:text-[#DF5E99] focus:text-[#DF5E99] transition-colors text-nav whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DF5E99] focus-visible:ring-offset-2 focus-visible:ring-offset-[#222222] rounded"
@@ -351,12 +351,12 @@ export default function Navbar() {
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              className="fixed top-20 left-3 right-3 sm:left-4 sm:right-4 bottom-4 max-w-md mx-auto z-40 bg-[#222222] rounded-3xl shadow-2xl border border-white/10 lg:hidden overflow-hidden"
+              className="fixed top-20 left-3 right-3 sm:left-4 sm:right-4 max-w-sm mx-auto z-40 bg-[#222222] rounded-3xl shadow-2xl border border-white/10 lg:hidden overflow-hidden"
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation menu"
             >
-              <nav className="flex flex-col h-full overflow-y-auto p-4 sm:p-6" role="navigation">
+              <nav className="flex flex-col p-4 sm:p-6" role="navigation">
                 {/* Main Navigation Links */}
                 <div className="space-y-1">
                   {["Who We Are", "Services", "Success Stories", "Our Story", "Insights"].map((item) => (

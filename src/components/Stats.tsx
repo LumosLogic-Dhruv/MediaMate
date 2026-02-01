@@ -32,11 +32,11 @@ export default function Stats() {
       aria-label="Key performance statistics"
     >
       <div className="bg-white rounded-[40px] shadow-[0_10px_50px_rgba(0,0,0,0.06)] px-8 py-10 md:px-16 w-[90vw] ">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12" role="list">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12" role="list">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex items-center justify-center gap-5"
+              className="flex items-center justify-start md:justify-center gap-5"
               role="listitem"
             >
               {/* Icon Container - No background, exact sizing */}
