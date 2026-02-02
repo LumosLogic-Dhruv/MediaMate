@@ -23,7 +23,7 @@ export default function Hero() {
               className="max-w-3xl space-y-6 md:space-y-8 text-center lg:text-left order-2 lg:order-1"
             >
               {/* --- Title Section --- */}
-              <h1 className="font-bold leading-[1.1] text-gray-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="font-bold leading-[1.1] text-gray-900 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
                 <span className="block">We scale ecommerce</span>
                 <span className="block">brands with precision</span>
                 <span className="text-[#DF5E99] block">performance marketing</span>
@@ -33,7 +33,7 @@ export default function Hero() {
               </h1>
 
               {/* --- Subtitle --- */}
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-snug max-w-2xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-snug max-w-2xl mx-auto lg:mx-0">
                 Drive growth with data-driven strategies that deliver measurable results for your ecommerce business.
               </p>
 
@@ -66,9 +66,10 @@ export default function Hero() {
               </form>
             </motion.div>
 
+
             {/* --- RIGHT CONTENT: OVERLAPPING IMAGES --- */}
             <div
-              className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] w-full max-w-5xl flex items-center justify-center order-1 lg:order-2"
+              className="relative h-[250px] xs:h-[300px] sm:h-[350px] md:h-[420px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px] w-full max-w-5xl flex items-center justify-center order-1 lg:order-2"
               aria-hidden="true"
             >
               {/* Mobile: Show only one centered image */}
@@ -78,92 +79,92 @@ export default function Hero() {
                 transition={{ duration: 1 }}
                 className="lg:hidden absolute inset-0 flex items-center justify-center z-10 mt-5"
               >
-                <div className="w-[85%] h-[85%] overflow-hidden border-[6px] border-white/50 shadow-2xl">
+                <div className="w-[85vw] h-[85%]">
                   <Image
-                    src={resources.heroImg1.src}
+                    src={resources.heroImg2.src}
                     alt="A high-energy candid photo of two people"
                     fill
                     priority
                     quality={75}
-                    sizes="85vw"
-                    className="object-cover rounded-3xl"
+                    className="object-contain rounded-3xl positioned-center"
                   />
                 </div>
               </motion.div>
 
-            {/* Desktop: All overlapping images */}
-              {/* Image 1 - Bottom-Left, Vertical */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
-                className="hidden lg:block absolute bottom-0 left-0 z-10 w-[40%] h-[50vh] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[40px] overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={resources.heroImg1.src}
-                  alt="A high-energy candid photo of two people laughing and singing into a microphone; one person is wearing a green jacket with floral patterns and sunglasses"
-                  fill
-                  priority
-                  quality={75}
-                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 45vw, (max-width: 1024px) 40vw, 35vw"
-                  className="object-cover"
-                  style={{ borderRadius: 'inherit' }}
-                />
-              </motion.div>
-
-              {/* Image 3 - Bottom-Center, Horizontal */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="hidden lg:block absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 w-[40%] h-[45%] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px] overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={resources.heroImg2.src}
-                  alt="A wide shot of a modern co-working space or cafe with people sitting at a long pink table working on laptops"
-                  fill
-                  priority
-                  quality={75}
-                  sizes="(max-width: 640px) 55vw, (max-width: 768px) 50vw, (max-width: 1024px) 45vw, 40vw"
-                  className="object-contain"
-                  style={{ borderRadius: 'inherit' }}
-                />
-              </motion.div>
-
-              {/* Image 2 - Top-Right, Vertical */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                className="hidden lg:block absolute top-0 right-0 z-10 w-[40%] h-[55%] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[45px] overflow-hidden shadow-xl"
-              >
-                <Image
-                  src={resources.heroImg3.src}
-                  alt="A portrait of a smiling man with a beard, wearing round glasses, a white t-shirt, and a dark beanie"
-                  fill
-                  priority
-                  quality={75}
-                  sizes="(max-width: 640px) 45vw, (max-width: 768px) 40vw, (max-width: 1024px) 35vw, 30vw"
-                  className="object-cover"
-                  style={{ borderRadius: 'inherit' }}
-                />
-              </motion.div>
-
-              {/* Floating Rocket Badge - Top Right of Image 1 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: 0 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -15, 0], rotate: [0, 5, 0] }}
-                className="hidden lg:flex absolute bottom-[50vh] left-[40%] transform -translate-x-1/2 translate-y-1/2 z-40 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-30 lg:h-30 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full items-center justify-center border-[2px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
-              >
-                <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center">
+              <div className="h-[80%] w-full flex justify-center item-center">
+                {/* Image 1 - Bottom-Left, Vertical */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1 }}
+                  className="hidden lg:block absolute bottom-10 left-0 z-10 w-[20vw] h-[54vh] rounded-[15px] sm:rounded-[30px] md:rounded-[40px] lg:rounded-[40px]"
+                >
                   <Image
-                    src={resources.rocket.src}
-                    alt={resources.rocket.alt}
+                    src={resources.heroImg1.src}
+                    alt="A high-energy candid photo of two people laughing and singing into a microphone; one person is wearing a green jacket with floral patterns and sunglasses"
                     fill
-                    className="object-contain p-7"
+                    priority
+                    quality={75}
+                    // sizes="(max-width: 640px) 50vw, (max-width: 768px) 45vw, (max-width: 1024px) 40vw, 35vw"
+                    className="object-contain w-fit h-fit"
+                    style={{ borderRadius: 'inherit' }}
                   />
-                </div>
-              </motion.div>
+                </motion.div>
+
+                {/* Image 3 - Bottom-Center, Horizontal */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  className="hidden lg:block absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 w-[20vw] h-[40vh] rounded-[15px] sm:rounded-[20px] md:rounded-[25px] lg:rounded-[40px]"
+                >
+                  <Image
+                    src={resources.heroImg2.src}
+                    alt="A wide shot of a modern co-working space or cafe with people sitting at a long pink table working on laptops"
+                    fill
+                    priority
+                    quality={75}
+                    // sizes="(max-width: 640px) 55vw, (max-width: 768px) 50vw, (max-width: 1024px) 45vw, 40vw"
+                    className="object-contain w-fit h-fit"
+                    style={{ borderRadius: 'inherit' }}
+                  />
+                </motion.div>
+
+                {/* Image 2 - Top-Right, Vertical */}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="hidden lg:block absolute top-10 right-0 z-10 w-[18vw] h-[40vh] rounded-[15px] sm:rounded-[20px] md:rounded-[30px] lg:rounded-[45px] "
+                >
+                  <Image
+                    src={resources.heroImg3.src}
+                    alt="A portrait of a smiling man with a beard, wearing round glasses, a white t-shirt, and a dark beanie"
+                    fill
+                    priority
+                    quality={75}
+                    // sizes="(max-width: 640px) 45vw, (max-width: 768px) 40vw, (max-width: 1024px) 35vw, 30vw"
+                    className="object-contain w-fit h-fit"
+                    style={{ borderRadius: 'inherit' }}
+                  />
+                </motion.div>
+
+                {/* Floating Rocket Badge - Top Right of Image 1 */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, y: 0 }}
+                  animate={{ opacity: 1, scale: 1, y: [0, -15, 0], rotate: [0, 5, 0] }}
+                  className="hidden lg:flex absolute top-15 left-[40%] transform -translate-x-1/2 translate-y-1/2 z-40 w-14 h-14 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-30 lg:h-30 bg-gradient-to-tr from-[#DF5E99] via-[#8E86AF] to-[#45AFC5] rounded-full items-center justify-center border-[2px] sm:border-[4px] md:border-[6px] lg:border-[10px] border-white/50 shadow-2xl"
+                >
+                  <div className="bg-white/10 w-[85%] h-[85%] rounded-full flex items-center justify-center">
+                    <Image
+                      src={resources.rocket.src}
+                      alt={resources.rocket.alt}
+                      fill
+                      className="object-contain p-7"
+                    />
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>

@@ -160,7 +160,7 @@ export default function SuccessStories() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full overflow-hidden py-16 md:py-20 select-none"
+      className="w-full overflow-hidden py-10 md:py-10 select-none"
       id="success-stories"
       aria-label="Success stories from our clients"
     >

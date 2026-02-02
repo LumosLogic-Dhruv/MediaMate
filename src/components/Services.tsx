@@ -298,29 +298,28 @@ export default function Services() {
   return (
     <section className="w-[90vw] py-10  bg-transparent m-auto">
       <div className="max-full mx-auto rounded-[40px] p-6 md:p-16 relative overflow-hidden bg-gradient-to-br from-[#F6B8CE] via-[#D3D1E7] to-[#B8E5EF] shadow-lg">
-        
+
         <h2 className="text-center text-3xl md:text-[40px] font-bold text-[#1a1a1a] mb-10">
           Services We Provide
         </h2>
 
         {/* --- PILL NAVIGATION --- */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 flex items-center justify-between max-w-4xl mx-auto mb-16 shadow-sm overflow-x-auto no-scrollbar">
+        <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 flex items-center justify-between max-w-4xl mx-auto mb-16 shadow-sm overflow-x-auto scrollbar-hide">
           {tabs.map((tab) => (
             <button
               key={tab.name}
               onClick={() => setActiveTab(tab.name)}
-              className={`px-6 py-3 rounded-full text-sm md:text-base font-bold transition-all duration-300 whitespace-nowrap ${
-                activeTab === tab.name
+              className={`px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-bold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeTab === tab.name
                   ? "bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white shadow-md"
                   : "text-gray-600 hover:text-gray-900"
-              }`}
+                }`}
             >
               {tab.name}
             </button>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center px-2 sm:px-4">
           {/* Left Side: Text */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -331,13 +330,13 @@ export default function Services() {
               transition={{ duration: 0.3 }}
               className="space-y-6"
             >
-              <h3 className="text-4xl md:text-[52px] font-bold text-[#1a1a1a] leading-tight tracking-tight">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-bold text-[#1a1a1a] leading-tight tracking-tight">
                 {currentContent.title}
               </h3>
-              <p className="text-lg md:text-[20px] text-gray-700 leading-relaxed max-w-lg font-medium">
+              <p className="text-base sm:text-lg md:text-xl lg:text-[20px] text-gray-700 leading-relaxed max-w-lg font-medium">
                 {currentContent.description}
               </p>
-              
+
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 className="bg-gradient-to-r from-[#DF5E99] to-[#45AFC5] text-white px-8 py-3.5 rounded-full font-bold flex items-center gap-2 shadow-lg text-[15px] outline-none focus:outline-none"
@@ -348,34 +347,23 @@ export default function Services() {
           </AnimatePresence>
 
           {/* Right Side: Image with Search Overlay */}
-          <motion.div 
+          <motion.div
             key={activeTab + "-img"}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4 }}
             className="relative"
           >
-             <div className="rounded-[30px] overflow-hidden shadow-2xl bg-white aspect-[1.5/1]">
-                <img
-                  // src={currentContent.image}
-                  // alt={currentContent.title}
-                  src= {resources.serviceImg.src}
-                  alt={resources.serviceImg.alt}
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Search Bar Overlay - Exact Styling from Image */}
-                <div className="absolute inset-0 flex items-center justify-center p-6">
-                    <div className="w-full max-w-[340px] bg-white/20 backdrop-blur-md border border-white/40 rounded-full h-[60px] flex items-center px-6 justify-between shadow-xl">
-                        <span className="text-white font-bold tracking-[0.2em] text-sm ml-4">SEARCH</span>
-                        <div className="bg-white/10 p-2 rounded-full">
-                             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                             </svg>
-                        </div>
-                    </div>
-                </div>
-             </div>
+            <div className="rounded-[30px] overflow-hidden shadow-2xl bg-white aspect-[1.5/1]">
+              <img
+                // src={currentContent.image}
+                // alt={currentContent.title}
+                src={resources.serviceImg.src}
+                alt={resources.serviceImg.alt}
+                className="w-full h-full object-cover"
+              />
+
+            </div>
           </motion.div>
         </div>
       </div>

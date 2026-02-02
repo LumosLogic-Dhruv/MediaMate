@@ -111,7 +111,7 @@ export default function Footer() {
               className="space-y-8 text-center lg:text-left"
             >
               {/* Company Logo */}
-              <div className="relative w-56 h-32 md:w-64 md:h-32 mx-auto lg:mx-0">
+              <div className="relative w-40 h-20 sm:w-48 sm:h-24 md:w-56 md:h-28 lg:w-64 lg:h-32 mx-auto lg:mx-0">
                 <Image
                   src={resources.logo.src}
                   alt={resources.logo.alt}
@@ -125,7 +125,7 @@ export default function Footer() {
               <h2 className="font-bold leading-tight font-montserrat">Ready to Scale?</h2>
 
               {/* Supporting Line */}
-              <p className="text-body-base md:text-body-lg text-gray-300 leading-relaxed max-w-md">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-md">
                 Let precision marketing take your brand to the next level
               </p>
 

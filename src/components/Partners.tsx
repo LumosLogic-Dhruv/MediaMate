@@ -56,14 +56,14 @@ export default function Partners() {
                 key={index}
                 className="flex flex-col items-center justify-center group min-w-[160px] md:min-w-[180px]"
               >
-                <div className="w-full h-34 md:w-40 flex items-center justify-center">
+                <div className="w-full h-20 sm:h-24 md:h-32 lg:h-34 flex items-center justify-center">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     width={160} 
                     height={60}
                     quality={60}
-                    sizes="(max-width: 768px) 120px, 160px"
+                    sizes="(max-width: 640px) 100px, (max-width: 768px) 120px, 160px"
                     className="max-w-full max-h-full object-contain transition-opacity duration-300"
                     loading="lazy"
                   />
